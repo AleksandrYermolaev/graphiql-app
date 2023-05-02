@@ -22,7 +22,12 @@ export const LoginPage = () => {
         localStorage.setItem('token-ff', token);
       })
       .catch((err) => {
-        toast.error(err.message);
+        if (err.code === 'auth/user-not-found') {
+          toast.error('User with this email is not registered');
+        }
+        if (err.code === 'auth/wrong-password') {
+          toast.error('Incorrect password, please try again');
+        }
       });
   };
 
