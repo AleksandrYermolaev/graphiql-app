@@ -15,10 +15,10 @@ export const RequireAuth = ({ children }: { children: JSX.Element }) => {
     if (currentTime >= expireTime!) {
       dispatch(setToken(null));
       localStorage.removeItem('token-ff');
-      return <Navigate to="/welcome" state={{ from: location }} />;
+      return <Navigate to="/" state={{ from: location }} />;
     }
   } else {
-    return <Navigate to="/welcome" state={{ from: location }} />;
+    return <Navigate to="/" state={{ from: location }} />;
   }
   return children;
 };
