@@ -7,7 +7,7 @@ export interface SwitcherInputProps {
   handleChange: () => void;
 }
 
-const SwitcherLanguage = ({ handleChange }: SwitcherInputProps) => {
+const SwitcherLanguage: React.FC<SwitcherInputProps> = ({ handleChange }) => {
 
   return (
     <label htmlFor='switcher-language' className={cx('switcher-language__label')}>

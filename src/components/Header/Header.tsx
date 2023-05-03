@@ -1,7 +1,6 @@
 import classNames from "classnames/bind";
 import styles from './Header.module.scss';
 import SwitcherLanguage from "../Switcher/SwitcherLanguage/SwitcherLanguage.tsx";
-import NavBar from "../NavBar/NavBar.tsx";
 
 const cx = classNames.bind(styles);
 
