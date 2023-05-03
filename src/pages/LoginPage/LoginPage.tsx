@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import { useAppDispatch } from 'hooks/useAppDispatch';
@@ -7,11 +7,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export const LoginPage = () => {
   const [email, setEmail] = useState('');
-  const [password, setPas] = useState('');
+  const [password, setPassword] = useState('');
   const dispatch = useAppDispatch();
   const auth = getAuth();
 
-  const onClickButton = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
@@ -33,7 +33,7 @@ export const LoginPage = () => {
 
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           name="login"
           placeholder="Email"
@@ -46,11 +46,9 @@ export const LoginPage = () => {
           placeholder="Password"
           type="password"
           value={password}
-          onChange={(e) => setPas(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit" onClick={(e) => onClickButton(e)}>
-          Войти
-        </button>
+        <button>Войти</button>
       </form>
       <ToastContainer position="top-right" />
     </>

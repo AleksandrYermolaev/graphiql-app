@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,7 +8,7 @@ export const SignUpPage = () => {
   const [password, setPassword] = useState('');
   const auth = getAuth();
 
-  const onClickButton = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
@@ -21,7 +21,7 @@ export const SignUpPage = () => {
 
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type="email"
           value={email}
@@ -34,9 +34,7 @@ export const SignUpPage = () => {
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit" onClick={(e) => onClickButton(e)}>
-          Зарегистрироваться
-        </button>
+        <button>Зарегистрироваться</button>
       </form>
       <ToastContainer position="top-right" />
     </>
