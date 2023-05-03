@@ -2,7 +2,7 @@ import { Layout } from 'components/Layout';
 import { GraphiqlPage } from 'pages/GraphiqlPage';
 import { LoginPage } from 'pages/LoginPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
-import { RegisterPage } from 'pages/RegisterPage';
+import { SignUpPage } from 'pages/SignUpPage';
 import { WelcomePage } from 'pages/WelcomePage';
 
 export default [
@@ -28,7 +28,7 @@ export default [
           },
           {
             path: 'register',
-            element: <RegisterPage />,
+            element: <SignUpPage />,
           },
         ],
       },
