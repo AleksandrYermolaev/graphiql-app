@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userSlice from './userSlise.ts';
+import localeSlice from './localeSclice.tsx';
 
 export const store = configureStore({
   reducer: {
     userInfo: userSlice,
+    localeInfo: localeSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
