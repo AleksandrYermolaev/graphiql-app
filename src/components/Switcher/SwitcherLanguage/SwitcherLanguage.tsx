@@ -8,12 +8,11 @@ export interface SwitcherInputProps {
 }
 
 const SwitcherLanguage: React.FC<SwitcherInputProps> = ({ handleChange }) => {
-
   return (
-    <label htmlFor='switcher-language' className={cx('switcher-language__label')}>
+    <label htmlFor="switcher-language" className={cx('switcher-language__label')}>
       <input
-        type='checkbox'
-        id = 'switcher-language'
+        type="checkbox"
+        id="switcher-language"
         className={cx('switcher-language__input')}
         onChange={handleChange}
       />
