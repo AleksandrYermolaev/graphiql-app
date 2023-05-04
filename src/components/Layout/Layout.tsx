@@ -27,20 +27,8 @@ export const Layout: React.FC = () => {
         <main className={classes.main}>
           <Outlet />
         </main>
-        <footer className={classes.footer}>Footer</footer>
+        <Footer />
       </div>
     </IntlProvider>
-    <div className={classes.wrapper}>
-      <header className={classes.header}>
-        <Link to="/login">Login</Link>
-        <Link to="/register">Register</Link>
-        <Link to="/app">Main</Link>
-        <Link to="/">Welcome</Link>
-      </header>
-      <main className={classes.main}>
-        <Outlet />
-      </main>
-      <Footer />
-    </div>
   );
 };
