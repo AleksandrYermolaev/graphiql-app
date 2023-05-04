@@ -1,0 +1,20 @@
+@use '../../styles/variables';
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border-radius: variables.$border-radius-buttons;
+  padding: 5px;
+
+  &__header {
+    font-size: 16px;
+    background: variables.$color-primary-beige;
+    color: variables.$color-primary-brown;
+    line-height: 150%;
+    height: 30px;
+    margin-left: 20px;
+  }
+}
