@@ -7,9 +7,21 @@
   background-color: var.$color-primary-brown;
   color: var.$color-primary-beige;
   display: flex;
-  gap: 1rem;
   justify-content: center;
   align-items: center;
+
+  .list {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+
+    &-item {
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+    }
+  }
 
   .link {
     display: flex;
