@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userSlice from './userSlise.ts';
-import localeSlice from './localeSclice.tsx';
+import localeSlice from './localeSclice';
 
 export const store = configureStore({
   reducer: {

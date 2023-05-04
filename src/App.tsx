@@ -7,10 +7,9 @@ import 'styles/global.scss';
 const router = createBrowserRouter(routes);
 
 const App: React.FC = () => {
-
   return (
     <Provider store={store}>
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
     </Provider>
   );
 };

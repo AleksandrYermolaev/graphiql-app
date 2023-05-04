@@ -17,4 +17,20 @@
     height: 30px;
     margin-left: 20px;
   }
+
+  &__primary {
+    padding: 0 10px;
+    height: 30px;
+    font-size: 16px;
+    line-height: 150%;
+    color: variables.$color-primary-beige;
+    background: variables.$color-bright-orange;
+    border: none;
+    cursor: pointer;
+    transition: variables.$transition;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
 }

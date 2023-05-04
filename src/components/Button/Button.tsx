@@ -1,21 +1,20 @@
 import classNames from 'classnames/bind';
 import styles from './Button.module.scss';
+import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
 
 const cx = classNames.bind(styles);
 
-interface ButtonProps {
+interface ButtonProps
+  extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   type: 'button' | 'submit' | 'reset' | undefined;
-  style: string;
-  content: JSX.Element;
+  styles: string;
+  include: JSX.Element;
 }
 
-const Button: React.FC<ButtonProps> = ({ type, style, content}) => {
-
+export const Button: React.FC<ButtonProps> = ({ type, styles, include, ...props }) => {
   return (
-    <button type={type} className={cx('button', `${style}`)}>
-      {content}
+    <button type={type} className={cx('button', `${styles}`)} {...props}>
+      {include}
     </button>
   );
 };
-
-export default Button;
