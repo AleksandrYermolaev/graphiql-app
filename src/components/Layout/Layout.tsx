@@ -1,5 +1,6 @@
 import { Outlet, Link } from 'react-router-dom';
 import classes from './Layout.module.scss';
+import { Footer } from 'components/Footer';
 
 export const Layout: React.FC = () => {
   return (
@@ -13,7 +14,7 @@ export const Layout: React.FC = () => {
       <main className={classes.main}>
         <Outlet />
       </main>
-      <footer className={classes.footer}>Footer</footer>
+      <Footer />
     </div>
   );
 };
