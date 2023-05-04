@@ -17,8 +17,8 @@ export const RequireAuth = ({ children }: { children: JSX.Element }) => {
       localStorage.removeItem('token-ff');
       return <Navigate to="/" state={{ from: location }} />;
     }
+    return children;
   } else {
     return <Navigate to="/" state={{ from: location }} />;
   }
-  return children;
 };
