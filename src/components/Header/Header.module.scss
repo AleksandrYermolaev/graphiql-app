@@ -15,7 +15,12 @@
     align-items: center;
   }
 
-  &__location-text {
+  &__location-text{
     color: variables.$color-primary-beige;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
   }
 }
