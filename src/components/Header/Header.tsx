@@ -6,7 +6,7 @@ import { SwitcherLanguage } from '../Switcher/SwitcherLanguage';
 import { Button } from '../Button';
 import { getInitialLocale } from 'helpers/getInitialLocale';
 import { LOCALES } from 'IntlLocale/locales';
-import { LocaleSlice } from 'store/localeSclice';
+import { LocaleSlice } from 'store/localeSlice';
 import { useAppDispatch } from 'hooks/useAppDispatch.ts';
 
 const cx = classNames.bind(styles);
