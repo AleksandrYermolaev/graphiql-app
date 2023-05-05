@@ -19,7 +19,7 @@ label {
     }
 
     .error {
-        color: rgb(255, 87, 87);
+        color: variables.$color-primary-red;
         display: inline-block;
         width: 70%;
         height: 3.5rem;
