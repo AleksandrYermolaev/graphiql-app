@@ -11,7 +11,7 @@ export const Loader = () => {
         <div className={cx('loader__ring')} />
         <div className={cx('loader__ring')} />
         <div className={cx('loader__ring')} />
-        <div className={cx('loader__text')}>loading</div>
+        <div className={cx('loader__text')}>Loading...</div>
       </div>
     </div>
   );

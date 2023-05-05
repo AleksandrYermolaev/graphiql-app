@@ -1,4 +1,4 @@
-@use 'styles/variables';
+@use '../../styles/variables';
 
 .loader {
   display: -webkit-box;
@@ -10,6 +10,8 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  position: relative;
+  top: 100px;
 
   &__container {
     display: -webkit-box;
@@ -35,11 +37,11 @@
   &__text {
     font-family: 'Poppins-medium', sans-serif;
     font-size: 16px;
-    color: variables.$color-primary-white;
+    color: variables.$color-primary-brown;
   }
 }
 
-#ring:nth-child(1) {
+.loader__ring:nth-child(1) {
   border-bottom: 8px solid variables.$color-loader-violet;
   -webkit-animation: rotate1 2s linear infinite;
   animation: rotate1 2s linear infinite;
@@ -69,7 +71,7 @@
   }
 }
 
-#ring:nth-child(2) {
+.loader__ring:nth-child(2) {
   border-bottom: 8px solid variables.$color-loader-pink;
   -webkit-animation: rotate2 2s linear infinite;
   animation: rotate2 2s linear infinite;
@@ -99,7 +101,7 @@
   }
 }
 
-#ring:nth-child(3) {
+.loader__ring:nth-child(3) {
   border-bottom: 8px solid variables.$color-loader-blue;
   -webkit-animation: rotate3 2s linear infinite;
   animation: rotate3 2s linear infinite;
@@ -129,7 +131,7 @@
   }
 }
 
-#ring:nth-child(4) {
+.loader__ring:nth-child(4) {
   border-bottom: 8px solid variables.$color-loader-yellow;
   -webkit-animation: rotate4 2s linear infinite;
   animation: rotate4 2s linear infinite;
