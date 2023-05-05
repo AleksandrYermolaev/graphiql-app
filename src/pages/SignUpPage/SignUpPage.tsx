@@ -52,7 +52,9 @@ export const SignUpPage = () => {
     <>
       <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
         <fieldset className={classes.fieldset}>
-          <h2 className={classes.title}>Sign Up</h2>
+          <h2 className={classes.title}>
+            <FormattedMessage id="signUp" />
+          </h2>
           <Input
             register={register('email', {
               required: 'Requered',
@@ -87,7 +89,10 @@ export const SignUpPage = () => {
           />
         </fieldset>
         <div className={classes.link}>
-          If you are already registered - click <Link to="/login">here</Link>
+          <FormattedMessage id="allreadyRegister" />
+          <Link to="/login">
+            <FormattedMessage id="here" />
+          </Link>
         </div>
       </form>
       <ToastContainer position="top-right" />
