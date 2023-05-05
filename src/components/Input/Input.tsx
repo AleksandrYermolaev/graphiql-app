@@ -1,4 +1,5 @@
 import { FieldErrors, FieldValues, UseFormRegisterReturn } from 'react-hook-form';
+import classes from './Input.module.scss';
 
 type IProps = {
   register: UseFormRegisterReturn;
@@ -8,21 +9,14 @@ type IProps = {
   errors?: FieldErrors<FieldValues>;
 };
 
-const Input = ({ register, nameInput, placeholder, type, errors }: IProps) => {
+export const Input = ({ register, nameInput, placeholder, type, errors }: IProps) => {
   return (
-    <>
-      <label htmlFor={nameInput}>
-        <input type={type} {...register} placeholder={placeholder} />
-        <span
-          className="error-span"
-          /* style={{ color: 'red', display: 'inline-block', width: '70%' }} */
-        >
-          {errors?.[nameInput]?.message?.toString()}
-          {errors?.[nameInput]?.type === 'validate' && 'Passwords do not match'}
-        </span>
-      </label>
-    </>
+    <label htmlFor={nameInput}>
+      <input className={classes.input} type={type} {...register} placeholder={placeholder} />
+      <span className={classes.error}>
+        {errors?.[nameInput]?.message?.toString()}
+        {errors?.[nameInput]?.type === 'validate' && 'Passwords do not match'}
+      </span>
+    </label>
   );
 };
-
-export default Input;
