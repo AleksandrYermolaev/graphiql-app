@@ -83,7 +83,7 @@ export const SignUpPage = () => {
             placeholder={'Password'}
           />
           <Button
-            type={'button'}
+            type={'submit'}
             style={'button__form'}
             content={<FormattedMessage id="signUp" />}
           />
