@@ -1,6 +1,6 @@
 import { useLocation, Navigate } from 'react-router';
 import jwtDecode, { JwtPayload } from 'jwt-decode';
-import { setToken } from 'store/userSlise';
+import { setToken } from 'store/userSlice';
 import { useAppDispatch } from 'hooks/useAppDispatch';
 
 export const RequireAuth = ({ children }: { children: JSX.Element }) => {

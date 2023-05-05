@@ -7,6 +7,8 @@ export const messages = {
     signUp: 'Sign up',
     allreadyRegister: 'If you are already registered - click ',
     here: 'here',
+    notFoundMsg: `Oh no, looks like you've wandered in the wrong place!`,
+    backToHome: 'Back to home',
   },
 
   [LOCALES.RUSSIAN]: {
@@ -15,5 +17,7 @@ export const messages = {
     signUp: 'Регистрация',
     allreadyRegister: 'Если вы уже зарегистрированы - нажмите ',
     here: 'здесь',
+    notFoundMsg: 'Упс, похоже вы свернули не туда!',
+    backToHome: 'Вернуться домой',
   },
 };

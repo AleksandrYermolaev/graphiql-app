@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './SwitcherLanguage.module.scss';
-import {LOCALES} from '../../../IntlLocale/locales.tsx';
+import { LOCALES } from '../../../IntlLocale/locales';
 
 const cx = classNames.bind(styles);
 
@@ -9,13 +9,13 @@ export interface SwitcherInputProps {
   handleChange: () => void;
 }
 
-const SwitcherLanguage: React.FC<SwitcherInputProps> = ({ currentLocale, handleChange }) => {
+export const SwitcherLanguage: React.FC<SwitcherInputProps> = ({ currentLocale, handleChange }) => {
   const isRussian = currentLocale === LOCALES.RUSSIAN;
   return (
-    <label htmlFor='switcher-language' className={cx('switcher-language__label')}>
+    <label htmlFor="switcher-language" className={cx('switcher-language__label')}>
       <input
-        type='checkbox'
-        id = 'switcher-language'
+        type="checkbox"
+        id="switcher-language"
         className={cx('switcher-language__input')}
         onChange={handleChange}
         checked={isRussian}
@@ -24,5 +24,3 @@ const SwitcherLanguage: React.FC<SwitcherInputProps> = ({ currentLocale, handleC
     </label>
   );
 };
-
-export default SwitcherLanguage;

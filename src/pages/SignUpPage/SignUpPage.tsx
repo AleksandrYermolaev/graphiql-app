@@ -7,7 +7,7 @@ import { Input } from 'components/Input';
 import 'react-toastify/dist/ReactToastify.css';
 import classes from './SignUpPage.module.scss';
 import { FormattedMessage } from 'react-intl';
-import Button from 'components/Button/Button';
+import { Button } from 'components/Button';
 
 export type IForm = {
   email: string;
@@ -91,8 +91,8 @@ export const SignUpPage = () => {
           </Link>
         </div>
         <Button
-          style={'button__form'}
-          content={<FormattedMessage id="signUp" />}
+          styles={'button__form'}
+          include={<FormattedMessage id="signUp" />}
           type={undefined}
         />
       </form>

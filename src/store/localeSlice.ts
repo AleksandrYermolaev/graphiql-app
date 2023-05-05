@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import {getInitialLocale} from '../helpers/getInitialLocale.tsx';
+import { getInitialLocale } from 'helpers/getInitialLocale';
 
 export interface LocaleStateInterface {
   locale: string;
