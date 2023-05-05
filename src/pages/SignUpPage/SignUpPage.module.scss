@@ -11,6 +11,7 @@
     align-items: center;
     justify-content: center;
     margin: 30px auto;
+    padding: 3rem 1.5rem;
 
     .title {
         font-size: 3rem;
@@ -18,7 +19,6 @@
     }
 
     .fieldset {
-    padding: 3rem 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1.4rem;

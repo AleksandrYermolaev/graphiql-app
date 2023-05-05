@@ -12,7 +12,13 @@ type IProps = {
 export const Input = ({ register, nameInput, placeholder, type, errors }: IProps) => {
   return (
     <label htmlFor={nameInput}>
-      <input className={classes.input} type={type} {...register} placeholder={placeholder} />
+      <input
+        className={classes.input}
+        type={type}
+        {...register}
+        placeholder={placeholder}
+        autoComplete="off"
+      />
       <span className={classes.error}>
         {errors?.[nameInput]?.message?.toString()}
         {errors?.[nameInput]?.type === 'validate' && 'Passwords do not match'}

@@ -37,6 +37,7 @@ export const SignUpPage = () => {
   const auth = getAuth();
 
   const onSubmit: SubmitHandler<IForm> = async (data) => {
+    console.log('onSubmit: ', data.email, data.password);
     createUserWithEmailAndPassword(auth, data.email, data.password)
       .then(() => {
         setRegister(true);
@@ -82,11 +83,6 @@ export const SignUpPage = () => {
             errors={errors}
             placeholder={'Password'}
           />
-          <Button
-            type={'submit'}
-            style={'button__form'}
-            content={<FormattedMessage id="signUp" />}
-          />
         </fieldset>
         <div className={classes.link}>
           <FormattedMessage id="allreadyRegister" />
@@ -94,6 +90,11 @@ export const SignUpPage = () => {
             <FormattedMessage id="here" />
           </Link>
         </div>
+        <Button
+          style={'button__form'}
+          content={<FormattedMessage id="signUp" />}
+          type={undefined}
+        />
       </form>
       <ToastContainer position="top-right" />
     </>
