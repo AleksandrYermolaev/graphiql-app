@@ -6,7 +6,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { Input } from 'components/Input';
 import 'react-toastify/dist/ReactToastify.css';
 import classes from './SignUpPage.module.scss';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { Button } from 'components/Button';
 
 export type IForm = {
@@ -38,15 +38,18 @@ export const SignUpPage = () => {
   const auth = getAuth();
 
   const onSubmit: SubmitHandler<IForm> = async (data) => {
-    console.log('onSubmit: ', data.email, data.password);
     createUserWithEmailAndPassword(auth, data.email, data.password)
       .then(() => {
         setRegister(true);
-        toast.success('User registered successfully');
+        toast.success(<FormattedMessage id="successRegister" />);
       })
       .catch((err) => {
         setRegister(false);
-        toast.error(err.message);
+        if (err.code === 'auth/email-already-in-use') {
+          toast.error(<FormattedMessage id="userExist" />);
+        } else {
+          toast.error(err.message);
+        }
       });
   };
 
@@ -59,31 +62,30 @@ export const SignUpPage = () => {
           </h2>
           <Input
             register={register('email', {
-              required: 'Requered',
+              required: useIntl().formatMessage({ id: 'requered' }),
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: 'Invalid email address',
+                message: useIntl().formatMessage({ id: 'invalidEmail' }),
               },
             })}
             nameInput={'email'}
             type="email"
             errors={errors}
-            placeholder={'Email'}
+            placeholder={useIntl().formatMessage({ id: 'placeholderEmail' })}
           />
           <Input
             register={register('password', {
-              required: 'Requered',
+              required: useIntl().formatMessage({ id: 'requered' }),
               pattern: {
                 value:
                   /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d][A-Za-z\d!@#$%^&*()_+]{8}/,
-                message:
-                  'Must be contain minimum 8 symbols, at least one letter, one digit, one special character. First letter',
+                message: useIntl().formatMessage({ id: 'inValidPassword' }),
               },
             })}
             nameInput={'password'}
             type="password"
             errors={errors}
-            placeholder={'Password'}
+            placeholder={useIntl().formatMessage({ id: 'placeholderPassword' })}
           />
         </fieldset>
         <div className={classes.link}>
