@@ -28,9 +28,10 @@ export const SignUpPage = () => {
 
   useEffect(() => {
     if (isRegister) {
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         navigate('/login', { replace: true });
       }, 2000);
+      return () => clearTimeout(timer);
     }
   }, [isRegister, navigate]);
 
