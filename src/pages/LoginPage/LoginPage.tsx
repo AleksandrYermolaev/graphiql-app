@@ -2,7 +2,8 @@ import { FormEvent, useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import { useAppDispatch } from 'hooks/useAppDispatch';
-import { setToken } from 'store/userSliсe';
+import { setToken } from 'store/userSlice';
+
 import 'react-toastify/dist/ReactToastify.css';
 
 export const LoginPage = () => {

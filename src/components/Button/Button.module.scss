@@ -8,6 +8,9 @@
   height: 50px;
   border-radius: variables.$border-radius-buttons;
   padding: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
 
   &__header {
     font-size: 16px;
@@ -16,6 +19,15 @@
     line-height: 150%;
     height: 30px;
     margin-left: 20px;
+  }
+
+  &__form {
+    width: 17rem;
+    margin: auto;
+    background-color: variables.$color-primary-orange;
+    &:hover {
+      background-color: variables.$color-bright-orange;
+    }
   }
 
   &__primary {
@@ -34,3 +46,4 @@
     }
   }
 }
+
