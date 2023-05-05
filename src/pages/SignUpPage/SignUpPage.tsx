@@ -73,9 +73,10 @@ export const SignUpPage = () => {
             register={register('password', {
               required: 'Requered',
               pattern: {
-                value: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+                value:
+                  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d][A-Za-z\d!@#$%^&*()_+]{8}/,
                 message:
-                  'Must be contain minimum 8 symbols, at least one letter, one digit, one special character',
+                  'Must be contain minimum 8 symbols, at least one letter, one digit, one special character. First letter',
               },
             })}
             nameInput={'password'}
