@@ -14,7 +14,7 @@ export const Layout: React.FC = () => {
     <IntlProvider messages={messages[locale]} locale={locale} defaultLocale={LOCALES.ENGLISH}>
       <div className={classes.wrapper}>
         <Header />
-        <header className={classes.header}>
+        <header>
           <Link to="/login">Login</Link>
           <Link to="/register">Register</Link>
           <Link to="/app">Main</Link>

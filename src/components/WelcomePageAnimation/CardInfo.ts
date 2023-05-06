@@ -1,4 +1,4 @@
-export const request: string = `
+export const request = `
 query {
   characters(
   filter: { name: "Benjamin" }) {
@@ -17,7 +17,7 @@ query {
   }
 }`;
 
-export const response: string = `
+export const response = `
 {
   "data": {
     "characters": {
