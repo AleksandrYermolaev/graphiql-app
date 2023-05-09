@@ -1,6 +1,8 @@
-@use '../../styles/variables';
+@use 'src/styles/variables';
+@use 'src/styles/fonts';
 
 .header {
+  font-family: fonts.$font-medium;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
