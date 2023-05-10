@@ -10,14 +10,15 @@ import { LocaleSlice } from 'store/localeSlice';
 import { useAppDispatch } from 'hooks/useAppDispatch.ts';
 import { useAppSelector } from 'hooks/useAppDispatch.ts';
 import { Link } from 'react-router-dom';
+import { setToken } from '../../store/userSlice.ts';
 
 const cx = classNames.bind(styles);
 
 export const Header = () => {
   const token = useAppSelector((state) => state.userInfo.token);
+  const dispatch = useAppDispatch();
 
   const [currentLocale, setCurrentLocale] = useState(getInitialLocale());
-  const dispatch = useAppDispatch();
   const { setStoreLocale } = LocaleSlice.actions;
   const [scroll, setScroll] = useState<boolean>(false);
 
@@ -28,6 +29,11 @@ export const Header = () => {
       setScroll(false);
     }
   }
+
+  const deleteToken = () => {
+    dispatch(setToken(null));
+    localStorage.removeItem('token-ff');
+  };
 
   const buttonStyle = scroll ? 'header__button-noscroll' : 'header__button-scroll';
 
@@ -55,6 +61,7 @@ export const Header = () => {
               type={'button'}
               styles={`${buttonStyle}`}
               include={<FormattedMessage id="logOut" />}
+              onClick={deleteToken}
             />
           </Link>
         )}
