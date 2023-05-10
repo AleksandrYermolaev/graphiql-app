@@ -9,6 +9,13 @@
   align-items: center;
   height: 50px;
   background: variables.$color-primary-brown;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  transition: variables.$transition;
+  z-index: variables.$z-index-header;
 
   &__location {
     display: flex;
@@ -21,8 +28,17 @@
     color: variables.$color-primary-beige;
   }
 
+  &__location-text.fixed {
+    color: variables.$color-primary-brown;
+  }
+
   &__buttons {
     display: flex;
     flex-direction: row;
   }
+}
+
+.header.fixed {
+  background-color: variables.$color-primary-beige;
+  box-shadow: inset 0 0 6px variables.$color-primary-brown-shadow;
 }
