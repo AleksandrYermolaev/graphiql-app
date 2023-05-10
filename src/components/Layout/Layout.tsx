@@ -6,6 +6,7 @@ import { messages } from '../../IntlLocale/messages';
 import { useAppSelector } from '../../hooks/useAppDispatch.ts';
 import { Header } from 'components/Header';
 import { Footer } from 'components/Footer';
+import { Loader } from '../Loader/Loader.tsx';
 
 export const Layout: React.FC = () => {
   const { locale } = useAppSelector((state) => state.localeInfo);
@@ -14,7 +15,7 @@ export const Layout: React.FC = () => {
     <IntlProvider messages={messages[locale]} locale={locale} defaultLocale={LOCALES.ENGLISH}>
       <div className={classes.wrapper}>
         <Header />
-        <header className={classes.header}>
+        <header>
           <Link to="/login">Login</Link>
           <Link to="/register">Register</Link>
           <Link to="/app">Main</Link>
