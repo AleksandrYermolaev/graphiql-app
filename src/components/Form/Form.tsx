@@ -9,13 +9,15 @@ type IPropsForm = {
 
 export const Form = ({ title, children, onSubmit }: IPropsForm) => {
   return (
-    <form className={classes.form} onSubmit={onSubmit}>
-      <fieldset className={classes.fieldset}>
-        <h2 className={classes.title}>
-          <FormattedMessage id={title} />
-        </h2>
-        {children}
-      </fieldset>
-    </form>
+    <div className={classes.wrapper}>
+      <form className={classes.form} onSubmit={onSubmit}>
+        <fieldset className={classes.fieldset}>
+          <h2 className={classes.title}>
+            <FormattedMessage id={title} />
+          </h2>
+          {children}
+        </fieldset>
+      </form>
+    </div>
   );
 };
