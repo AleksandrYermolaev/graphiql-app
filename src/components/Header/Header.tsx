@@ -8,10 +8,14 @@ import { getInitialLocale } from 'helpers/getInitialLocale';
 import { LOCALES } from 'IntlLocale/locales';
 import { LocaleSlice } from 'store/localeSlice';
 import { useAppDispatch } from 'hooks/useAppDispatch.ts';
+import { useAppSelector } from 'hooks/useAppDispatch.ts';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
 export const Header = () => {
+  const token = useAppSelector((state) => state.userInfo.token);
+
   const [currentLocale, setCurrentLocale] = useState(getInitialLocale());
   const dispatch = useAppDispatch();
   const { setStoreLocale } = LocaleSlice.actions;
@@ -45,16 +49,33 @@ export const Header = () => {
         <p className={cx('header__location-text', { fixed: scroll })}>RU</p>
       </div>
       <div className={cx('header__buttons')}>
-        <Button
-          type={'button'}
-          styles={`${buttonStyle}`}
-          include={<FormattedMessage id="signUp" />}
-        />
-        <Button
-          type={'button'}
-          styles={`${buttonStyle}`}
-          include={<FormattedMessage id="logIn" />}
-        />
+        {token && (
+          <Link to="/" className={cx('header__links')}>
+            <Button
+              type={'button'}
+              styles={`${buttonStyle}`}
+              include={<FormattedMessage id="logOut" />}
+            />
+          </Link>
+        )}
+        {!token && (
+          <Link to="/register" className={cx('header__links')}>
+            <Button
+              type={'button'}
+              styles={`${buttonStyle}`}
+              include={<FormattedMessage id="signUp" />}
+            />
+          </Link>
+        )}
+        {!token && (
+          <Link to="/login" className={cx('header__links')}>
+            <Button
+              type={'button'}
+              styles={`${buttonStyle}`}
+              include={<FormattedMessage id="logIn" />}
+            />
+          </Link>
+        )}
       </div>
     </header>
   );
