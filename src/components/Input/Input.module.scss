@@ -1,27 +1,26 @@
 @use '../../styles/variables' as variables;
 
-    
 label {
-    text-align: center;
+  text-align: center;
 
-    .input {
-        font-size: 1.6rem;
-        border: none;
-        outline: none;
-        background-color: transparent;
-        border-bottom: 3px solid variables.$color-primary-beige;
-        color: variables.$color-primary-beige;
-    }
-    
-    .input::placeholder {
-        color: variables.$color-primary-beige;
-        color: variables.$color-primary-beige;
-    }
+  .input {
+    font-size: 1.6rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 3px solid variables.$color-primary-beige;
+    color: variables.$color-primary-beige;
+  }
 
-    .error {
-        color: variables.$color-primary-red;
-        display: inline-block;
-        width: 70%;
-        height: 3.5rem;
-    }
+  .input::placeholder {
+    color: variables.$color-primary-beige;
+    color: variables.$color-primary-beige;
+  }
+
+  .error {
+    color: variables.$color-primary-red;
+    display: inline-block;
+    width: 70%;
+    height: 3.5rem;
+  }
 }
