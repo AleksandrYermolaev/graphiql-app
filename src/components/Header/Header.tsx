@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import { FormattedMessage } from 'react-intl';
 import styles from './Header.module.scss';
@@ -37,8 +37,6 @@ export const Header = () => {
 
   const buttonStyle = scroll ? 'header__button-noscroll' : 'header__button-scroll';
 
-  window.addEventListener('scroll', setFixed);
-
   const handleChangeLanguage = () => {
     const locale =
       currentLocale === `${LOCALES.ENGLISH}` ? `${LOCALES.RUSSIAN}` : `${LOCALES.ENGLISH}`;
@@ -46,6 +44,11 @@ export const Header = () => {
     localStorage.setItem('locale', `${locale}`);
     dispatch(setStoreLocale(locale));
   };
+
+  useEffect(() => {
+    window.addEventListener('scroll', setFixed);
+    return () => window.removeEventListener('scroll', setFixed);
+  }, []);
 
   return (
     <header className={cx('header', { fixed: scroll })}>
