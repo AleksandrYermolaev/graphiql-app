@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import { FormattedMessage } from 'react-intl';
 import styles from './Header.module.scss';
@@ -8,13 +8,34 @@ import { getInitialLocale } from 'helpers/getInitialLocale';
 import { LOCALES } from 'IntlLocale/locales';
 import { LocaleSlice } from 'store/localeSlice';
 import { useAppDispatch } from 'hooks/useAppDispatch.ts';
+import { useAppSelector } from 'hooks/useAppDispatch.ts';
+import { Link } from 'react-router-dom';
+import { setToken } from '../../store/userSlice.ts';
 
 const cx = classNames.bind(styles);
 
 export const Header = () => {
-  const [currentLocale, setCurrentLocale] = useState(getInitialLocale());
+  const token = useAppSelector((state) => state.userInfo.token);
   const dispatch = useAppDispatch();
+
+  const [currentLocale, setCurrentLocale] = useState(getInitialLocale());
   const { setStoreLocale } = LocaleSlice.actions;
+  const [scroll, setScroll] = useState<boolean>(false);
+
+  function setFixed() {
+    if (window.scrollY >= 50) {
+      setScroll(true);
+    } else {
+      setScroll(false);
+    }
+  }
+
+  const deleteToken = () => {
+    dispatch(setToken(null));
+    localStorage.removeItem('token-ff');
+  };
+
+  const buttonStyle = scroll ? 'header__button-noscroll' : 'header__button-scroll';
 
   const handleChangeLanguage = () => {
     const locale =
@@ -24,24 +45,47 @@ export const Header = () => {
     dispatch(setStoreLocale(locale));
   };
 
+  useEffect(() => {
+    window.addEventListener('scroll', setFixed);
+    return () => window.removeEventListener('scroll', setFixed);
+  }, []);
+
   return (
-    <header className={cx('header')}>
+    <header className={cx('header', { fixed: scroll })}>
       <div className={cx('header__location')}>
-        <p className={cx('header__location-text')}>ENG</p>
+        <p className={cx('header__location-text', { fixed: scroll })}>ENG</p>
         <SwitcherLanguage currentLocale={currentLocale} handleChange={handleChangeLanguage} />
-        <p className={cx('header__location-text')}>RU</p>
+        <p className={cx('header__location-text', { fixed: scroll })}>RU</p>
       </div>
       <div className={cx('header__buttons')}>
-        <Button
-          type={'button'}
-          styles={'button__header'}
-          include={<FormattedMessage id="signUp" />}
-        />
-        <Button
-          type={'button'}
-          styles={'button__header'}
-          include={<FormattedMessage id="logIn" />}
-        />
+        {token && (
+          <Link to="/" className={cx('header__links')}>
+            <Button
+              type={'button'}
+              styles={`${buttonStyle}`}
+              include={<FormattedMessage id="logOut" />}
+              onClick={deleteToken}
+            />
+          </Link>
+        )}
+        {!token && (
+          <Link to="/register" className={cx('header__links')}>
+            <Button
+              type={'button'}
+              styles={`${buttonStyle}`}
+              include={<FormattedMessage id="signUp" />}
+            />
+          </Link>
+        )}
+        {!token && (
+          <Link to="/login" className={cx('header__links')}>
+            <Button
+              type={'button'}
+              styles={`${buttonStyle}`}
+              include={<FormattedMessage id="logIn" />}
+            />
+          </Link>
+        )}
       </div>
     </header>
   );

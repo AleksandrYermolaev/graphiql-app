@@ -7,19 +7,14 @@
   align-items: center;
   height: 50px;
   border-radius: variables.$border-radius-buttons;
-  padding: 5px;
+  padding: 10px;
   border: none;
   outline: none;
   cursor: pointer;
-
-  &__header {
-    font-size: 16px;
-    background: variables.$color-primary-beige;
-    color: variables.$color-primary-brown;
-    line-height: 150%;
-    height: 30px;
-    margin-left: 20px;
-  }
+  font-size: 16px;
+  line-height: 150%;
+  height: 30px;
+  margin-left: 20px;
 
   &__form {
     width: 17rem;
@@ -45,4 +40,21 @@
       transform: scale(1.2);
     }
   }
+}
+
+.header__button {
+  &-scroll {
+    background: variables.$color-primary-beige;
+    color: variables.$color-primary-brown;
+  }
+
+  &-noscroll {
+    background: variables.$color-primary-brown;
+    color: variables.$color-primary-beige;
+  }
+}
+
+.button:hover {
+  background: variables.$color-bright-orange;
+  color: variables.$color-primary-brown;
 }
