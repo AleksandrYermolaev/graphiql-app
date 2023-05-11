@@ -12,9 +12,13 @@ export const messages = {
     placeholderPassword: 'Password',
     requered: 'Requered',
     userExist: 'User with this email exist',
+    userNotExist: 'User with this email not exist',
+    userAuth: 'User authorisation successfully',
     invalidEmail: 'Invalid email address',
     inValidPassword:
       'Must be contain minimum 8 symbols, at least one letter, one digit, one special character. First letter',
+    notRegister: 'Have no account yet? ',
+    incorrectPassword: 'Incorrect password, try again',
     notFoundMsg: `Oh no, looks like you've wandered in the wrong place!`,
     backToHome: 'Back to home',
     wp1: `Send a GraphQL query to your API and get exactly what you need, nothing more and nothing
@@ -29,8 +33,8 @@ export const messages = {
   },
 
   [LOCALES.RUSSIAN]: {
-    logIn: 'Вход',
-    logOut: 'Выход',
+    logIn: 'Войти',
+    logOut: 'Выйти',
     signUp: 'Регистрация',
     successRegister: 'Пользователь успешно зарегистрирован',
     allreadyRegister: 'Если вы уже зарегистрированы - нажмите ',
@@ -39,9 +43,13 @@ export const messages = {
     placeholderPassword: 'Пароль',
     requered: 'Обязательное поле',
     userExist: 'Пользователь с такой электронной почтой уже зарегистрирован',
+    userNotExist: 'Пользователь с такой электронной почтой не зарегистрирован',
+    userAuth: 'Пользователь успешно авторизован',
     invalidEmail: 'Неправильный формат',
     inValidPassword:
       'Должен содержать минимум 8 символов, 1 буква, 1 цифра и 1 специальный символ. Первая буква',
+    notRegister: 'Еще не зарегистрированы? ',
+    incorrectPassword: 'Неправильный пароль, попробуйте еще раз',
     notFoundMsg: 'Упс, похоже вы свернули не туда!',
     backToHome: 'Вернуться домой',
     wp1: `Отправьте запрос к вашему API с помощью GraphQL и получите ответ - именно то, что вам нужно, ничего больше и ничего
