@@ -5,9 +5,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Input } from 'components/Input';
 import 'react-toastify/dist/ReactToastify.css';
-import classes from './SignUpPage.module.scss';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Button } from 'components/Button';
+import { Form } from 'components/Form/Form';
 
 export type IForm = {
   email: string;
@@ -55,11 +55,8 @@ export const SignUpPage = () => {
 
   return (
     <>
-      <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
-        <fieldset className={classes.fieldset}>
-          <h2 className={classes.title}>
-            <FormattedMessage id="signUp" />
-          </h2>
+      <Form title={'signUp'} onSubmit={handleSubmit(onSubmit)}>
+        <>
           <Input
             register={register('email', {
               required: useIntl().formatMessage({ id: 'requered' }),
@@ -87,19 +84,19 @@ export const SignUpPage = () => {
             errors={errors}
             placeholder={useIntl().formatMessage({ id: 'placeholderPassword' })}
           />
-        </fieldset>
-        <div className={classes.link}>
-          <FormattedMessage id="allreadyRegister" />
-          <Link to="/login">
-            <FormattedMessage id="here" />
-          </Link>
-        </div>
-        <Button
-          styles={'button__form'}
-          include={<FormattedMessage id="signUp" />}
-          type={undefined}
-        />
-      </form>
+          <p>
+            <FormattedMessage id="allreadyRegister" />
+            <Link to="/login">
+              <FormattedMessage id="here" />
+            </Link>
+          </p>
+          <Button
+            styles={'button__form'}
+            include={<FormattedMessage id="signUp" />}
+            type={'submit'}
+          />
+        </>
+      </Form>
       <ToastContainer position="top-right" />
     </>
   );

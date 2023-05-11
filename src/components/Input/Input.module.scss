@@ -2,9 +2,8 @@
 
 label {
   text-align: center;
-
   .input {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     border: none;
     outline: none;
     background-color: transparent;
@@ -16,7 +15,6 @@ label {
     color: variables.$color-primary-beige;
     color: variables.$color-primary-beige;
   }
-
   .error {
     color: variables.$color-primary-red;
     display: inline-block;
