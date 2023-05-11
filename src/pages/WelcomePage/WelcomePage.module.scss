@@ -3,7 +3,7 @@
 
 .welcome {
   &__wrapper {
-    background-image: url("src/assets/images/background.jpg");
+    background-image: url('src/assets/images/background.jpg');
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -38,12 +38,13 @@
     margin: 0;
   }
 
-  &__heading_main{
+  &__heading_main {
     font-size: 48px;
     font-weight: 600;
-    text-shadow: 0.75px 0.5px 0.75px variables.$color-primary-beige, 0 0.75px 0.75px variables.$color-primary-beige,
-    -0.75px 0 0.75px variables.$color-primary-beige,
-    0 -0.75px 0.75px variables.$color-primary-beige;
+    text-shadow: 0.75px 0.5px 0.75px variables.$color-primary-beige,
+      0 0.75px 0.75px variables.$color-primary-beige,
+      -0.75px 0 0.75px variables.$color-primary-beige,
+      0 -0.75px 0.75px variables.$color-primary-beige;
     margin: 0;
   }
 

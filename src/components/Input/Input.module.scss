@@ -1,11 +1,9 @@
 @use '../../styles/variables' as variables;
 
-    
 label {
-    text-align: center;
-
+  text-align: center;
     .input {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         border: none;
         outline: none;
         background-color: transparent;
@@ -17,11 +15,10 @@ label {
         color: variables.$color-primary-beige;
         color: variables.$color-primary-beige;
     }
-
-    .error {
-        color: variables.$color-primary-red;
-        display: inline-block;
-        width: 70%;
-        height: 3.5rem;
-    }
+  .error {
+    color: variables.$color-primary-red;
+    display: inline-block;
+    width: 70%;
+    height: 3.5rem;
+  }
 }
