@@ -1,4 +1,4 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import classes from './Layout.module.scss';
 import { LOCALES } from '../../IntlLocale/locales';
 import { IntlProvider } from 'react-intl';
@@ -14,12 +14,6 @@ export const Layout: React.FC = () => {
     <IntlProvider messages={messages[locale]} locale={locale} defaultLocale={LOCALES.ENGLISH}>
       <div className={classes.wrapper}>
         <Header />
-        <header className={classes.deleted}>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Register</Link>
-          <Link to="/app">Main</Link>
-          <Link to="/">Welcome</Link>
-        </header>
         <main className={classes.main}>
           <Outlet />
         </main>
