@@ -6,6 +6,7 @@
     height: calc(100vh - 100px);
     padding-top: 6rem;
 }
+
 .form {
     max-width: 600px;
     row-gap: 20px;
@@ -18,13 +19,12 @@
     justify-content: center;
     margin: 0px auto;
     padding: 3rem 0.5rem;
+  .title {
+    font-size: 3rem;
+    text-align: center;
+  }
 
-    .title {
-        font-size: 3rem;
-        text-align: center;
-    }
-
-    .fieldset {
+  .fieldset {
     display: flex;
     flex-direction: column;
     gap: 1.4rem;
@@ -32,23 +32,23 @@
     border:none;
     padding: 0;
 
-        .legend {
-            padding: 0 10px;
-            font-size: 1.1rem;
-        }
+    .legend {
+      padding: 0 10px;
+      font-size: 1.1rem;
     }
+  }
+  
+  p {
+    text-align: center;
+    padding-bottom: 10px;
+  }
 
-    p {
-        text-align: center;
-        padding-bottom: 10px;
-    }
+  a {
+    color: variables.$color-primary-orange;
+    text-decoration: none;
+  }
 
-    a {
-        color: variables.$color-primary-orange;
-        text-decoration: none;
-    }
-
-    a:hover {
-        color: variables.$color-bright-orange;
-    }
+  a:hover {
+    color: variables.$color-bright-orange;
+  }
 }
