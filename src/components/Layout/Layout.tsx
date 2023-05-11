@@ -6,7 +6,6 @@ import { messages } from '../../IntlLocale/messages';
 import { useAppSelector } from '../../hooks/useAppDispatch.ts';
 import { Header } from 'components/Header';
 import { Footer } from 'components/Footer';
-import { Loader } from '../Loader/Loader.tsx';
 
 export const Layout: React.FC = () => {
   const { locale } = useAppSelector((state) => state.localeInfo);
