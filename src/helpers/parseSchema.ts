@@ -7,6 +7,13 @@ import {
   IntrospectionType,
 } from 'graphql';
 
+export const getInititalSchema = (apiSchemas: ReadonlyArray<IntrospectionType>): number => {
+  if (apiSchemas.length) {
+    return apiSchemas.findIndex((schema) => schema.name === 'Query');
+  }
+  return 0;
+};
+
 export const getSchemaHeading = (schema: IntrospectionType): string => {
   if (!schema) {
     return '';

@@ -6,11 +6,14 @@ import { ObjectDoc } from './ObjectDoc';
 import { InputObjectDoc } from './InputObjectDoc';
 import { ScalarDoc } from './ScalarDoc';
 import { Fallback } from './Fallback';
+import { getInititalSchema } from 'helpers/parseSchema';
 
 export const GraphDoc: React.FC = () => {
   const [apiSchema, setApiSchema] = useState<ReadonlyArray<IntrospectionType>>([]);
   const [viewSchemaNum, setViewSchemaNum] = useState<number>(0);
   const viewSchema = apiSchema[viewSchemaNum];
+
+  console.log(apiSchema);
 
   const handleChangeSchema = (event: React.SyntheticEvent<HTMLSpanElement, MouseEvent>): void => {
     const { textContent } = event.target as HTMLElement;
@@ -22,13 +25,14 @@ export const GraphDoc: React.FC = () => {
   };
 
   const handleReturn = (): void => {
-    setViewSchemaNum(0);
+    setViewSchemaNum(getInititalSchema(apiSchema));
   };
 
   useEffect(() => {
     (async () => {
       const schemaText = await apiService.getSchema();
       setApiSchema(schemaText);
+      setViewSchemaNum(getInititalSchema(schemaText));
     })();
   }, []);
 
