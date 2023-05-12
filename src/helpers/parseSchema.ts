@@ -42,7 +42,7 @@ const getNameOfType = (type: IntrospectionInputTypeRef | IntrospectionOutputType
     return `${getNameOfType(type.ofType)}!`;
   }
   if (kind === 'LIST') {
-    return `[ ${getNameOfType(type.ofType)} ]`;
+    return `[ ${getNameOfType(type.ofType)} ]`;
   }
   return 'name calculation error';
 };
@@ -63,6 +63,7 @@ export const getScalarDesc = (viewSchema: IntrospectionScalarType) => {
     border-radius: 3px;
     background-color: #22221f;
     color: white;
+    font-family: 'Fira code';
   `;
   if (viewSchema.description) {
     if (viewSchema.description.includes('`')) {

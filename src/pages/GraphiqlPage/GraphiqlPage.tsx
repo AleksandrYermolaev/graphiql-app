@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react';
+import { IntrospectionType } from 'graphql';
 import styles from './GraphiqlPage.module.scss';
 import apiService from 'services/apiService';
-
-import { IntrospectionType } from 'graphql';
-import { ObjectDoc } from 'components/ObjectDoc';
-import { getScalarDesc } from 'helpers/parseSchema';
+import { ObjectDoc } from 'components/GraphDoc/ObjectDoc';
+import { ScalarDoc } from 'components/GraphDoc/ScalarDoc';
 
 export const GraphiqlPage: React.FC = () => {
   const [apiSchema, setApiSchema] = useState<ReadonlyArray<IntrospectionType>>([]);
-  const [viewSchemaNum] = useState<number>(1);
+  const [viewSchemaNum] = useState<number>(2);
   const viewSchema = apiSchema[viewSchemaNum];
 
   useEffect(() => {
@@ -30,11 +29,7 @@ export const GraphiqlPage: React.FC = () => {
   if (viewSchema?.kind === 'SCALAR') {
     return (
       <section className={styles.doc}>
-        <h3 className={styles.heading}>{viewSchema.name}</h3>
-        <p
-          className={styles.desc}
-          dangerouslySetInnerHTML={{ __html: getScalarDesc(viewSchema) }}
-        ></p>
+        <ScalarDoc viewSchema={viewSchema} />
       </section>
     );
   }

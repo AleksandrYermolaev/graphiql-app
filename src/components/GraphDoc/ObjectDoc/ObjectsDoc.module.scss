@@ -1,5 +1,5 @@
-@use '../../styles/variables' as var;
-@use '../../styles/fonts' as font;
+@use '../../../styles/variables' as var;
+@use '../../../styles/fonts' as font;
 
 .heading {
   font-family: font.$font-bold;
