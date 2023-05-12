@@ -8,33 +8,3 @@
   padding: 0.5rem 1rem;
   background-color: var.$color-primary-brown;
 }
-.heading {
-  font-family: font.$font-bold;
-  font-size: 1.5rem;
-  color: var.$color-primary-beige;
-  margin-bottom: 1rem;
-}
-.desc {
-  font-family: font.$font-medium;
-  font-size: 1rem;
-  color: var.$color-primary-beige;
-  margin-bottom: 0.3rem;
-}
-.code {
-  font-family: font.$font-light;
-  font-size: 1rem;
-  color: var.$color-primary-white;
-  margin-bottom: 1rem;
-}
-.field_name {
-  color: var.$color-doc-blue;
-}
-.params {
-  color: var.$color-doc-red;
-}
-.param_values {
-  color: var.$color-doc-orange;
-}
-.type {
-  color: var.$color-doc-orange;
-}
