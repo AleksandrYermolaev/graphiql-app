@@ -1,13 +1,14 @@
 import { Fragment } from 'react';
-import styles from './InputObjectsDoc.module.scss';
 import { IntrospectionInputObjectType, IntrospectionInputValue } from 'graphql';
+import styles from './InputObjectsDoc.module.scss';
 import { getFieldDesc, getFieldName, getFieldType, getSchemaHeading } from 'helpers/parseSchema';
 
 interface InputObjectDocProps {
   viewSchema: IntrospectionInputObjectType;
+  changeSchema: (event: React.SyntheticEvent<HTMLSpanElement, MouseEvent>) => void;
 }
 
-export const InputObjectDoc: React.FC<InputObjectDocProps> = ({ viewSchema }) => {
+export const InputObjectDoc: React.FC<InputObjectDocProps> = ({ viewSchema, changeSchema }) => {
   const { heading, desc, code, field_name, type } = styles;
 
   return (
@@ -19,7 +20,9 @@ export const InputObjectDoc: React.FC<InputObjectDocProps> = ({ viewSchema }) =>
             <p className={desc}>{getFieldDesc(field)}</p>
             <p className={code}>
               <span className={field_name}>{getFieldName(field)}</span>:{' '}
-              <span className={type}>{getFieldType(field)}</span>
+              <span className={type} onClick={changeSchema}>
+                {getFieldType(field)}
+              </span>
             </p>
           </Fragment>
         ))}

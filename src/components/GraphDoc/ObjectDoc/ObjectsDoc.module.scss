@@ -25,9 +25,12 @@
 .params {
   color: var.$color-doc-red;
 }
-.param_values {
-  color: var.$color-doc-orange;
-}
+.param_values,
 .type {
   color: var.$color-doc-orange;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

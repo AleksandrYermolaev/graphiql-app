@@ -7,9 +7,21 @@
   color: var.$color-primary-beige;
   margin-bottom: 1rem;
 }
-.desc {
+.desc,
+.link {
   font-family: font.$font-medium;
   font-size: 1rem;
   color: var.$color-primary-beige;
   margin-bottom: 0.3rem;
+}
+
+.link {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

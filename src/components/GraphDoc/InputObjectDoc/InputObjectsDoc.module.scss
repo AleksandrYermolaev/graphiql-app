@@ -24,4 +24,9 @@
 }
 .type {
   color: var.$color-doc-orange;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

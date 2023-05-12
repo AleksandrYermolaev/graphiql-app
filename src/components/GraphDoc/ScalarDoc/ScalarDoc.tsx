@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
-import styles from './ScalarDoc.module.scss';
 import { IntrospectionScalarType } from 'graphql';
+import styles from './ScalarDoc.module.scss';
 import { getScalarDesc } from 'helpers/parseSchema';
 
 interface ScalarDocProps {

@@ -9,8 +9,21 @@ import { Fallback } from './Fallback';
 
 export const GraphDoc: React.FC = () => {
   const [apiSchema, setApiSchema] = useState<ReadonlyArray<IntrospectionType>>([]);
-  const [viewSchemaNum] = useState<number>(0);
+  const [viewSchemaNum, setViewSchemaNum] = useState<number>(0);
   const viewSchema = apiSchema[viewSchemaNum];
+
+  const handleChangeSchema = (event: React.SyntheticEvent<HTMLSpanElement, MouseEvent>): void => {
+    const { textContent } = event.target as HTMLElement;
+    if (textContent) {
+      const originalName = textContent.replace(/[!\]\[ ]/gi, '');
+      const newViewSchemaNum = apiSchema.findIndex((schema) => schema.name === originalName);
+      setViewSchemaNum(newViewSchemaNum);
+    }
+  };
+
+  const handleReturn = (): void => {
+    setViewSchemaNum(0);
+  };
 
   useEffect(() => {
     (async () => {
@@ -19,16 +32,24 @@ export const GraphDoc: React.FC = () => {
     })();
   }, []);
 
-  console.log(apiSchema);
-
   switch (viewSchema?.kind) {
     case 'OBJECT':
-      return <DocWrapper doc={<ObjectDoc viewSchema={viewSchema} />} />;
+      return (
+        <DocWrapper
+          doc={<ObjectDoc viewSchema={viewSchema} changeSchema={handleChangeSchema} />}
+          setInitial={handleReturn}
+        />
+      );
     case 'INPUT_OBJECT':
-      return <DocWrapper doc={<InputObjectDoc viewSchema={viewSchema} />} />;
+      return (
+        <DocWrapper
+          doc={<InputObjectDoc viewSchema={viewSchema} changeSchema={handleChangeSchema} />}
+          setInitial={handleReturn}
+        />
+      );
     case 'SCALAR':
-      return <DocWrapper doc={<ScalarDoc viewSchema={viewSchema} />} />;
+      return <DocWrapper doc={<ScalarDoc viewSchema={viewSchema} />} setInitial={handleReturn} />;
     default:
-      return <DocWrapper doc={<Fallback />} />;
+      return <DocWrapper doc={<Fallback />} setInitial={handleReturn} />;
   }
 };

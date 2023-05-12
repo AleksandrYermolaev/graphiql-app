@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
-import styles from './ObjectsDoc.module.scss';
 import { IntrospectionField, IntrospectionInputValue, IntrospectionObjectType } from 'graphql';
+import styles from './ObjectsDoc.module.scss';
 import {
   getFieldArgName,
   getFieldArgType,
@@ -12,9 +12,10 @@ import {
 
 interface ObjectDocProps {
   viewSchema: IntrospectionObjectType;
+  changeSchema: (event: React.SyntheticEvent<HTMLSpanElement, MouseEvent>) => void;
 }
 
-export const ObjectDoc: React.FC<ObjectDocProps> = ({ viewSchema }) => {
+export const ObjectDoc: React.FC<ObjectDocProps> = ({ viewSchema, changeSchema }) => {
   const { heading, desc, code, field_name, params, param_values, type } = styles;
 
   return (
@@ -33,7 +34,9 @@ export const ObjectDoc: React.FC<ObjectDocProps> = ({ viewSchema }) => {
                     <Fragment>
                       <span className={params}>{getFieldArgName(field.args[0])}</span>
                       {': '}
-                      <span className={param_values}>{getFieldArgType(field.args[0])}</span>
+                      <span className={param_values} onClick={changeSchema}>
+                        {getFieldArgType(field.args[0])}
+                      </span>
                     </Fragment>
                   ) : (
                     field.args.map((argument: IntrospectionInputValue, index, array) => (
@@ -42,7 +45,9 @@ export const ObjectDoc: React.FC<ObjectDocProps> = ({ viewSchema }) => {
                         {'  '}
                         <span className={params}>{getFieldArgName(argument)}</span>
                         {': '}
-                        <span className={param_values}>{getFieldArgType(argument)}</span>
+                        <span className={param_values} onClick={changeSchema}>
+                          {getFieldArgType(argument)}
+                        </span>
                         {index === array.length - 1 ? <br /> : ', '}
                       </Fragment>
                     ))
@@ -50,7 +55,10 @@ export const ObjectDoc: React.FC<ObjectDocProps> = ({ viewSchema }) => {
                   {')'}
                 </Fragment>
               ) : null}
-              : <span className={type}>{getFieldType(field)}</span>
+              :{' '}
+              <span className={type} onClick={changeSchema}>
+                {getFieldType(field)}
+              </span>
             </p>
           </Fragment>
         ))}
