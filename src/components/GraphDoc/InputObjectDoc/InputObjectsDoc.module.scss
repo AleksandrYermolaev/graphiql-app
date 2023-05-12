@@ -1,0 +1,27 @@
+@use '../../../styles/variables' as var;
+@use '../../../styles/fonts' as font;
+
+.heading {
+  font-family: font.$font-bold;
+  font-size: 1.5rem;
+  color: var.$color-primary-beige;
+  margin-bottom: 1rem;
+}
+.desc {
+  font-family: font.$font-medium;
+  font-size: 1rem;
+  color: var.$color-primary-beige;
+  margin-bottom: 0.3rem;
+}
+.code {
+  font-family: font.$font-light;
+  font-size: 1rem;
+  color: var.$color-primary-white;
+  margin-bottom: 1rem;
+}
+.field_name {
+  color: var.$color-doc-blue;
+}
+.type {
+  color: var.$color-doc-orange;
+}

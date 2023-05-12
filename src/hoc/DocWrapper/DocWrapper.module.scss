@@ -1,0 +1,25 @@
+@use '../../styles/variables' as var;
+
+.wrapper {
+  max-width: 400px;
+  height: calc(100vh - 100px);
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  background-color: var.$color-primary-brown;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var.$color-primary-beige;
+    border: 2px solid var.$color-primary-brown;
+    border-radius: 10px;
+  }
+}

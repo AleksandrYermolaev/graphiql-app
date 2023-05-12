@@ -23,7 +23,7 @@ export const ObjectDoc: React.FC<ObjectDocProps> = ({ viewSchema }) => {
       {viewSchema &&
         viewSchema.fields.map((field: IntrospectionField, index) => (
           <Fragment key={`${field.name}-${index}`}>
-            <p className={desc}>{getFieldDesc(field)}:</p>
+            <p className={desc}>{getFieldDesc(field)}</p>
             <p className={code}>
               <span className={field_name}>{getFieldName(field)}</span>
               {field.args.length ? (

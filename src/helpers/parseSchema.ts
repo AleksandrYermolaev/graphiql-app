@@ -14,11 +14,11 @@ export const getSchemaHeading = (schema: IntrospectionType): string => {
   return schema.name;
 };
 
-export const getFieldDesc = (field: IntrospectionField): string => {
-  return field.description || 'Description not provided';
+export const getFieldDesc = (field: IntrospectionField | IntrospectionInputValue): string => {
+  return field.description || '';
 };
 
-export const getFieldName = (field: IntrospectionField): string => {
+export const getFieldName = (field: IntrospectionField | IntrospectionInputValue): string => {
   return field.name;
 };
 
@@ -52,7 +52,7 @@ export const getFieldArgType = (fieldArg: IntrospectionInputValue): string => {
   return name;
 };
 
-export const getFieldType = (field: IntrospectionField): string => {
+export const getFieldType = (field: IntrospectionField | IntrospectionInputValue): string => {
   const name = getNameOfType(field.type);
   return name;
 };
