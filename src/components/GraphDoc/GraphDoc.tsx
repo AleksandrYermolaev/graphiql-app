@@ -13,8 +13,6 @@ export const GraphDoc: React.FC = () => {
   const [viewSchemaNum, setViewSchemaNum] = useState<number>(0);
   const viewSchema = apiSchema[viewSchemaNum];
 
-  console.log(apiSchema);
-
   const handleChangeSchema = (event: React.SyntheticEvent<HTMLSpanElement, MouseEvent>): void => {
     const { textContent } = event.target as HTMLElement;
     if (textContent) {
