@@ -1,15 +1,10 @@
 import {
-  IntrospectionEnumType,
   IntrospectionField,
-  IntrospectionInputObjectType,
   IntrospectionInputTypeRef,
   IntrospectionInputValue,
-  IntrospectionInterfaceType,
-  IntrospectionObjectType,
   IntrospectionOutputTypeRef,
   IntrospectionScalarType,
   IntrospectionType,
-  IntrospectionUnionType,
 } from 'graphql';
 
 export const getSchemaHeading = (schema: IntrospectionType): string => {
@@ -62,22 +57,22 @@ export const getFieldType = (field: IntrospectionField): string => {
   return name;
 };
 
-export const getViewSchema = (apiSchema: ReadonlyArray<IntrospectionType>, viewNum: number) => {
-  if (apiSchema.length) {
-    const kind = apiSchema[viewNum].kind;
-    switch (kind) {
-      case 'OBJECT':
-        return apiSchema[viewNum] as IntrospectionObjectType;
-      case 'INPUT_OBJECT':
-        return apiSchema[viewNum] as IntrospectionInputObjectType;
-      case 'ENUM':
-        return apiSchema[viewNum] as IntrospectionEnumType;
-      case 'INTERFACE':
-        return apiSchema[viewNum] as IntrospectionInterfaceType;
-      case 'UNION':
-        return apiSchema[viewNum] as IntrospectionUnionType;
-      case 'SCALAR':
-        return apiSchema[viewNum] as IntrospectionScalarType;
+export const getScalarDesc = (viewSchema: IntrospectionScalarType) => {
+  const style = `
+    padding: 2px 5px;
+    border-radius: 3px;
+    background-color: #22221f;
+    color: white;
+  `;
+  if (viewSchema.description) {
+    if (viewSchema.description.includes('`')) {
+      const descSplit = viewSchema.description.split('`');
+      const mappedDesc = descSplit.map((descItem, index) =>
+        index % 2 === 0 ? descItem : `<span style="${style}">${descItem}</span>`
+      );
+      return mappedDesc.join('');
     }
+    return viewSchema.description;
   }
+  return 'Description is not provided';
 };
