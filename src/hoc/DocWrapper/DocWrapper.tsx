@@ -12,7 +12,7 @@ export const DocWrapper: React.FC<DocWrapperProps> = ({ doc, setInitial }) => {
     <section className={styles.wrapper}>
       {currentSchema && currentSchema.name === 'Query' ? null : (
         <a href="#" className={styles.link} onClick={setInitial}>
-          ← Back to Query
+          ← Back
         </a>
       )}
       {doc}

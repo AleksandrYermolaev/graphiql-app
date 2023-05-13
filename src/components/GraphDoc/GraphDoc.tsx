@@ -11,6 +11,7 @@ import { getInititalSchema } from 'helpers/parseSchema';
 export const GraphDoc: React.FC = () => {
   const [apiSchema, setApiSchema] = useState<ReadonlyArray<IntrospectionType>>([]);
   const [viewSchemaNum, setViewSchemaNum] = useState<number>(0);
+  const [navigationHistory, setNavigationHistory] = useState<Array<number>>([]);
   const viewSchema = apiSchema[viewSchemaNum];
 
   const handleChangeSchema = (event: React.SyntheticEvent<HTMLSpanElement, MouseEvent>): void => {
@@ -18,12 +19,19 @@ export const GraphDoc: React.FC = () => {
     if (textContent) {
       const originalName = textContent.replace(/[!\]\[ ]/gi, '');
       const newViewSchemaNum = apiSchema.findIndex((schema) => schema.name === originalName);
+      setNavigationHistory((prevState) => [...prevState, viewSchemaNum]);
       setViewSchemaNum(newViewSchemaNum);
     }
   };
 
-  const handleReturn = (): void => {
-    setViewSchemaNum(getInititalSchema(apiSchema));
+  const handleBackInHistory = (): void => {
+    const lastSchema = navigationHistory.at(-1);
+    if (lastSchema) {
+      setViewSchemaNum(lastSchema);
+    } else {
+      setViewSchemaNum(getInititalSchema(apiSchema));
+    }
+    setNavigationHistory((prevState) => prevState.slice(0, -1));
   };
 
   useEffect(() => {
@@ -39,19 +47,21 @@ export const GraphDoc: React.FC = () => {
       return (
         <DocWrapper
           doc={<ObjectDoc viewSchema={viewSchema} changeSchema={handleChangeSchema} />}
-          setInitial={handleReturn}
+          setInitial={handleBackInHistory}
         />
       );
     case 'INPUT_OBJECT':
       return (
         <DocWrapper
           doc={<InputObjectDoc viewSchema={viewSchema} changeSchema={handleChangeSchema} />}
-          setInitial={handleReturn}
+          setInitial={handleBackInHistory}
         />
       );
     case 'SCALAR':
-      return <DocWrapper doc={<ScalarDoc viewSchema={viewSchema} />} setInitial={handleReturn} />;
+      return (
+        <DocWrapper doc={<ScalarDoc viewSchema={viewSchema} />} setInitial={handleBackInHistory} />
+      );
     default:
-      return <DocWrapper doc={<Fallback />} setInitial={handleReturn} />;
+      return <DocWrapper doc={<Fallback />} setInitial={handleBackInHistory} />;
   }
 };
