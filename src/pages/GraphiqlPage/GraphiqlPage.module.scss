@@ -1,0 +1,39 @@
+@use '../../styles/variables';
+@use '../../styles/fonts';
+
+.g {
+
+  &__wrapper {
+    flex-grow: 1;
+    background-color: variables.$color-main-brown;
+    padding: 20px;
+    display: flex;
+  }
+
+  &__sandbox {
+    background-color: variables.$color-main-beige;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex-grow: 1;
+    border-radius: variables.$border-radius-main;
+    padding: 10px;
+  }
+
+  &__section-common {
+    padding: 15px;
+    border-radius: variables.$border-radius-main;
+    font-family: fonts.$font-bold;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+  }
+
+  &__request {
+    border: 1px solid variables.$color-bright-orange;
+    background-color: variables.$color-main-brown;
+    color: variables.$color-primary-beige;
+  }
+
+  &__response {
+    color: variables.$color-primary-brown;
+  }
+}
