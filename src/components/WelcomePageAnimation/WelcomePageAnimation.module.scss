@@ -9,6 +9,7 @@
     -webkit-box-shadow: 1px 1px 12px variables.$color-primary-brown-shadow;
     box-shadow: 1px 1px 12px variables.$color-primary-brown-shadow;
     -webkit-transform: preserve-3d;
+    transform: preserve-3d;
     -webkit-perspective: 2000px;
     perspective: 2000px;
     display: -webkit-box;

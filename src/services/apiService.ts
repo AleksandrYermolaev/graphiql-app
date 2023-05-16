@@ -1,5 +1,5 @@
 import { BASE_URL } from 'data/constants';
-import { getIntrospectionQuery, buildClientSchema, IntrospectionQuery, printSchema } from 'graphql';
+import { getIntrospectionQuery, IntrospectionQuery, IntrospectionType } from 'graphql';
 
 class ApiService {
   private sdlPayload = {
@@ -7,7 +7,7 @@ class ApiService {
     query: getIntrospectionQuery(),
   };
 
-  async getSchema(): Promise<string> {
+  async getSchema(): Promise<ReadonlyArray<IntrospectionType>> {
     const response = await fetch(BASE_URL, {
       method: 'POST',
       headers: {
@@ -16,8 +16,8 @@ class ApiService {
       body: JSON.stringify(this.sdlPayload),
     });
     const { data } = (await response.json()) as { data: IntrospectionQuery };
-    const schema = buildClientSchema(data);
-    return printSchema(schema);
+
+    return data.__schema.types;
   }
 }
 

@@ -2,7 +2,6 @@
 @use '../../styles/fonts';
 
 .accordion {
-
   &__title {
     border-top: 1px solid variables.$color-main-beige;
     margin-top: 10px;
@@ -21,15 +20,6 @@
     transition: variables.$transition;
     height: 15vh;
   }
-
-  &__variables {
-
-  }
-
-  &__headers {
-
-  }
-
 }
 .border-bottom {
   border-bottom: 1px solid variables.$color-main-beige;

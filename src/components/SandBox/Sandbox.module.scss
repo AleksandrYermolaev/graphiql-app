@@ -2,11 +2,10 @@
 @use '../../styles/fonts';
 
 .sandbox {
-
   &__wrapper {
     background-color: variables.$color-main-beige;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     flex-grow: 1;
     border-radius: variables.$border-radius-main;
     padding: 10px;
