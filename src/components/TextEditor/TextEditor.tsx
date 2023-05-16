@@ -6,11 +6,12 @@ import 'ace-builds/src-noconflict/theme-monokai';
 import 'ace-builds/src-noconflict/snippets/javascript';
 import 'ace-builds/src-noconflict/ext-language_tools';
 import { getRequest } from 'services/thunkResponse';
-import { useAppDispatch, useAppSelector } from 'hooks/useAppDispatch';
+import { useAppDispatch } from 'hooks/useAppDispatch';
+import { PlayCircle } from 'react-feather';
+import styles from './TextEditor.module.scss';
 
 export const TextEditor = () => {
   const [request, setRequest] = useState('');
-  const { data, error } = useAppSelector((state) => state.response);
   const dispatch = useAppDispatch();
 
   const onClickRequest = () => {
@@ -18,13 +19,15 @@ export const TextEditor = () => {
   };
 
   return (
-    <div className="wr">
+    <>
       <AceEditor
+        className={styles.editor}
         mode="javascript"
         theme="monokai"
         name="editor_js"
         fontSize="16"
-        width="50%"
+        width="100%"
+        border-radius="24px"
         showPrintMargin={false}
         showGutter={true}
         highlightActiveLine={true}
@@ -37,9 +40,12 @@ export const TextEditor = () => {
         }}
         onChange={(value: string) => setRequest(value)}
       />
-      <button onClick={onClickRequest}>Отправить</button>
-      <div>{data && JSON.stringify(data)}</div>
-      <div>{error && 'Уточните запрос'}</div>
-    </div>
+      <PlayCircle
+        color={'#e75b26'}
+        size={'2em'}
+        onClick={onClickRequest}
+        className={styles.button}
+      />
+    </>
   );
 };
