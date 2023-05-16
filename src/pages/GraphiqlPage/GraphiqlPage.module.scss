@@ -1,23 +1,37 @@
-@use '../../styles/variables' as var;
-@use '../../styles/fonts' as font;
+@use '../../styles/variables';
+@use '../../styles/fonts';
 
+.g {
+  &__wrapper {
+    flex-grow: 1;
+    background-color: variables.$color-main-brown;
+    padding: 20px;
+    display: flex;
+  }
+
+  &__icons {
+    padding: 10px;
+  }
+}
+
+//TODO delete classes
 .doc {
   max-width: 400px;
   height: calc(100vh - 100px);
   margin: 0 auto;
   padding: 0.5rem 1rem;
-  background-color: var.$color-primary-brown;
+  background-color: variables.$color-primary-brown;
   overflow: auto;
 }
 .heading {
-  font-family: font.$font-bold;
+  font-family: fonts.$font-bold;
   font-size: 1.5rem;
-  color: var.$color-primary-beige;
+  color: variables.$color-primary-beige;
   margin-bottom: 1rem;
 }
 .desc {
-  font-family: font.$font-medium;
+  font-family: fonts.$font-medium;
   font-size: 1rem;
-  color: var.$color-primary-beige;
+  color: variables.$color-primary-beige;
   margin-bottom: 0.3rem;
 }
