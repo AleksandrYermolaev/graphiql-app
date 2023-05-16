@@ -32,8 +32,11 @@
     flex-grow: 1;
   }
 
-  &__response {
+  &__server {
     color: variables.$color-primary-brown;
     flex-grow: 1;
+    font-family: fonts.$font-bold;
+    font-size: 18px;
+    letter-spacing: 0.1em;
   }
 }
