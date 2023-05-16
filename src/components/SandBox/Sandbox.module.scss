@@ -30,6 +30,8 @@
 
   &__request {
     flex-grow: 1;
+    display: grid;
+    grid-template-columns: 10fr 1fr;
   }
 
   &__server {
