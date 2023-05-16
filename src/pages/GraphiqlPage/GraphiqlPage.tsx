@@ -1,3 +1,5 @@
+import { GraphDoc } from 'components/GraphDoc';
+
 export const GraphiqlPage: React.FC = () => {
-  return <p>Main page</p>;
+  return <GraphDoc />;
 };
