@@ -30,6 +30,8 @@ export const messages = {
     wp_heading1: `query language`,
     wp_heading2: `for APIs`,
     hover_for_response: `Hover me to see API's response...`,
+    variables: 'Variables',
+    headers: 'Headers',
   },
 
   [LOCALES.RUSSIAN]: {
@@ -60,5 +62,7 @@ export const messages = {
     wp_heading1: `язык запросов`,
     wp_heading2: `для APIs`,
     hover_for_response: `Наведи курсор чтобы увидеть ответ API...`,
+    variables: 'Переменные',
+    headers: 'Заголовки',
   },
 };

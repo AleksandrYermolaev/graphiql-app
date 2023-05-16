@@ -16,6 +16,20 @@
   height: 30px;
   margin-left: 20px;
 
+  &__accordion-inactive {
+    background-color: transparent;
+    color: variables.$color-primary-beige;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+  }
+
+  &__accordion-active {
+    background: variables.$color-bright-orange;
+    color: variables.$color-primary-brown;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+  }
+
   &__form {
     width: 17rem;
     margin: auto;

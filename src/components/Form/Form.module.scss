@@ -9,17 +9,17 @@
 }
 
 .form {
-    max-width: 600px;
-    row-gap: 20px;
-    border-radius: 24px;
-    font-size: 1.4rem;
-    color: variables.$color-primary-beige;
-    border: 2px solid variables.$color-bright-orange;
-    background-color: variables.$color-primary-brown;
-    align-items: center;
-    justify-content: center;
-    margin: 0px auto;
-    padding: 3rem 0.5rem;
+  max-width: 600px;
+  row-gap: 20px;
+  border-radius: 24px;
+  font-size: 1.4rem;
+  color: variables.$color-primary-beige;
+  border: 2px solid variables.$color-bright-orange;
+  background-color: variables.$color-primary-brown;
+  align-items: center;
+  justify-content: center;
+  margin: 0px auto;
+  padding: 3rem 0.5rem;
   .title {
     font-size: 3rem;
     text-align: center;
@@ -30,7 +30,7 @@
     flex-direction: column;
     gap: 1.4rem;
     border-radius: 0.6rem;
-    border:none;
+    border: none;
     padding: 0;
 
     .legend {
@@ -38,7 +38,7 @@
       font-size: 1.1rem;
     }
   }
-  
+
   p {
     text-align: center;
     padding-bottom: 10px;
