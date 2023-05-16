@@ -9,8 +9,8 @@ const cx = classNames.bind(styles);
 export const Sandbox: React.FC = () => {
   return (
     <div className={cx('sandbox__wrapper')}>
-      <ClientSandbox children={request()} />
-      <ServerSandbox children={request()} />
+      <ClientSandbox>{request()}</ClientSandbox>
+      <ServerSandbox>{request()}</ServerSandbox>
     </div>
   );
 };
