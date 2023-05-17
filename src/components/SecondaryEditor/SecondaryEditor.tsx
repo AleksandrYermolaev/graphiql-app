@@ -9,11 +9,24 @@ import 'ace-builds/src-noconflict/mode-json';
 import 'ace-builds/src-noconflict/theme-monokai';
 import 'ace-builds/src-noconflict/worker-json';
 import './SecondaryEditor.scss';
+import { useAppDispatch } from 'hooks/useAppDispatch';
+import { setHeaders } from 'store/requestParamsSlice';
 
-export const SecondaryEditor: React.FC = () => {
+interface SecondaryEditorProps {
+  type: 'headers' | 'variables';
+}
+
+export const SecondaryEditor: React.FC<SecondaryEditorProps> = ({ type }) => {
+  const dispatch = useAppDispatch();
+  const handleChange = (value: string): void => {
+    if (type === 'headers') {
+      dispatch(setHeaders(value));
+    }
+  };
+
   return (
     <AceEditor
-      placeholder="write here..."
+      placeholder={`write ${type} here...`}
       mode={'json'}
       theme="monokai"
       fontSize={16}
@@ -22,7 +35,7 @@ export const SecondaryEditor: React.FC = () => {
       showPrintMargin={false}
       highlightActiveLine={false}
       tabSize={2}
-      onChange={() => console.log('edit')}
+      onChange={handleChange}
     />
   );
 };

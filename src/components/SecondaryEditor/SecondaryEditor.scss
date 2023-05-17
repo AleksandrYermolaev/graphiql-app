@@ -12,4 +12,8 @@
   .ace_gutter-active-line.ace_gutter-cell {
     background-color: variables.$color-primary-brown;
   }
+
+  .ace_comment.ace_placeholder {
+    color: variables.$color-primary-beige;
+  }
 }

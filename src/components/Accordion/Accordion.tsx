@@ -57,10 +57,14 @@ export const Accordion: React.FC = () => {
       </div>
       {showContent && showVariables && (
         <div className={cx('accordion__content')}>
-          <SecondaryEditor />
+          <SecondaryEditor type="variables" />
         </div>
       )}
-      {showContent && showHeaders && <div className={cx('accordion__content')}>show headers</div>}
+      {showContent && showHeaders && (
+        <div className={cx('accordion__content')}>
+          <SecondaryEditor type="headers" />
+        </div>
+      )}
     </div>
   );
 };
