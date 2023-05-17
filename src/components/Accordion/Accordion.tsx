@@ -4,6 +4,7 @@ import styles from './Accordion.module.scss';
 import { Button } from '../Button';
 import { FormattedMessage } from 'react-intl';
 import { ChevronDown, ChevronUp } from 'react-feather';
+import { SecondaryEditor } from 'components/SecondaryEditor';
 
 const cx = classNames.bind(styles);
 
@@ -13,9 +14,9 @@ export const Accordion: React.FC = () => {
   const [showHeaders, setShowHeaders] = useState(false);
 
   const buttonVarStyle =
-    showVariables && !showContent ? 'button__accordion-active' : 'button__accordion-inactive';
+    showVariables && showContent ? 'button__accordion-active' : 'button__accordion-inactive';
   const buttonHeadersStyle =
-    showHeaders && !showContent ? 'button__accordion-active' : 'button__accordion-inactive';
+    showHeaders && showContent ? 'button__accordion-active' : 'button__accordion-inactive';
 
   function toggleAccordion() {
     setShowContent(!showContent);
@@ -48,13 +49,18 @@ export const Accordion: React.FC = () => {
             onClick={toggleShowHeaders}
           />
         </div>
-        {showContent && <ChevronDown color={'#eee6cc'} onClick={toggleAccordion} />}
-        {!showContent && <ChevronUp color={'#eee6cc'} onClick={toggleAccordion} />}
+        {showContent ? (
+          <ChevronDown color={'#eee6cc'} onClick={toggleAccordion} />
+        ) : (
+          <ChevronUp color={'#eee6cc'} onClick={toggleAccordion} />
+        )}
       </div>
-      {!showContent && showVariables && (
-        <div className={cx('accordion__content')}>show variables</div>
+      {showContent && showVariables && (
+        <div className={cx('accordion__content')}>
+          <SecondaryEditor />
+        </div>
       )}
-      {!showContent && showHeaders && <div className={cx('accordion__content')}>show headers</div>}
+      {showContent && showHeaders && <div className={cx('accordion__content')}>show headers</div>}
     </div>
   );
 };

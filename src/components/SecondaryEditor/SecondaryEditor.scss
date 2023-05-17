@@ -1,0 +1,15 @@
+@use '../../styles/variables';
+
+.ace_editor.ace-monokai.ace_dark {
+  border-radius: 0 variables.$border-radius-main;
+  background-color: transparent;
+
+  div.ace_gutter {
+    background-color: transparent;
+    color: variables.$color-primary-beige;
+  }
+
+  .ace_gutter-active-line.ace_gutter-cell {
+    background-color: variables.$color-primary-brown;
+  }
+}

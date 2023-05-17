@@ -8,6 +8,7 @@ ace.config.setModuleUrl(
 import 'ace-builds/src-noconflict/mode-json';
 import 'ace-builds/src-noconflict/theme-monokai';
 import 'ace-builds/src-noconflict/worker-json';
+import './SecondaryEditor.scss';
 
 export const SecondaryEditor: React.FC = () => {
   return (
@@ -16,6 +17,8 @@ export const SecondaryEditor: React.FC = () => {
       mode={'json'}
       theme="monokai"
       fontSize={16}
+      height="100%"
+      width="100%"
       showPrintMargin={false}
       highlightActiveLine={false}
       tabSize={2}
