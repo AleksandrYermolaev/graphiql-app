@@ -23,11 +23,13 @@ export const Accordion: React.FC = () => {
   }
 
   function toggleShowVariables() {
+    setShowContent(true);
     setShowVariables(true);
     setShowHeaders(false);
   }
 
   function toggleShowHeaders() {
+    setShowContent(true);
     setShowVariables(false);
     setShowHeaders(true);
   }
