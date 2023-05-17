@@ -1,18 +1,13 @@
 import classNames from 'classnames/bind';
 import styles from './Docs.module.scss';
-import { ReactNode } from 'react';
+import { GraphDoc } from '../GraphDoc';
 
 const cx = classNames.bind(styles);
 
-interface DocsProps {
-  children: ReactNode;
-}
-
-export const Docs: React.FC<DocsProps> = ({ children }) => {
+export const Docs: React.FC = () => {
   return (
     <div className={cx('docs__wrapper')}>
-      <p>Docs</p>
-      {children}
+      <GraphDoc />
     </div>
   );
 };

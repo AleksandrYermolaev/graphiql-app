@@ -4,7 +4,6 @@ import styles from './GraphiqlPage.module.scss';
 import { Sandbox } from '../../components/SandBox/Sandbox.tsx';
 import { Book, BookOpen } from 'react-feather';
 import { Docs } from '../../components/Docs/Docs.tsx';
-import request from '../../components/SandBox/request.tsx';
 
 const cx = classNames.bind(styles);
 
@@ -20,7 +19,7 @@ export const GraphiqlPage: React.FC = () => {
         {showDocs && <Book color={'#eee6cc'} onClick={toggleDocsIcon} />}
         {!showDocs && <BookOpen color={'#eee6cc'} onClick={toggleDocsIcon} />}
       </div>
-      {!showDocs && <Docs>{request()}</Docs>}
+      {!showDocs && <Docs />}
       <Sandbox />
     </div>
   );
