@@ -9,8 +9,9 @@ import 'ace-builds/src-noconflict/mode-json';
 import 'ace-builds/src-noconflict/theme-monokai';
 import 'ace-builds/src-noconflict/worker-json';
 import './SecondaryEditor.scss';
-import { useAppDispatch } from 'hooks/useAppDispatch';
-import { setHeaders } from 'store/requestParamsSlice';
+import { useAppDispatch, useAppSelector } from 'hooks/useAppDispatch';
+import { selectHeaders, selectVariables, setHeaders, setVariables } from 'store/requestParamsSlice';
+import { useDebouncedCallback } from 'use-debounce';
 
 interface SecondaryEditorProps {
   type: 'headers' | 'variables';
@@ -18,9 +19,22 @@ interface SecondaryEditorProps {
 
 export const SecondaryEditor: React.FC<SecondaryEditorProps> = ({ type }) => {
   const dispatch = useAppDispatch();
+  const debouncedVariablesDispatch = useDebouncedCallback((value: string) => {
+    dispatch(setVariables(value));
+  }, 250);
+  const debouncedHeadersDispatch = useDebouncedCallback((value: string) => {
+    dispatch(setHeaders(value));
+  }, 250);
+
+  const variablesValue = useAppSelector(selectVariables);
+  const headersValue = useAppSelector(selectHeaders);
+
   const handleChange = (value: string): void => {
     if (type === 'headers') {
-      dispatch(setHeaders(value));
+      debouncedHeadersDispatch(value);
+    }
+    if (type === 'variables') {
+      debouncedVariablesDispatch(value);
     }
   };
 
@@ -28,6 +42,7 @@ export const SecondaryEditor: React.FC<SecondaryEditorProps> = ({ type }) => {
     <AceEditor
       placeholder={`write ${type} here...`}
       mode={'json'}
+      value={type === 'headers' ? headersValue : variablesValue}
       theme="monokai"
       fontSize={16}
       height="100%"
