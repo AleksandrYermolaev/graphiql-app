@@ -4,9 +4,13 @@ import { GraphDoc } from '../GraphDoc';
 
 const cx = classNames.bind(styles);
 
-export const Docs: React.FC = () => {
+interface DocsProps {
+  animationClass: string;
+}
+
+export const Docs: React.FC<DocsProps> = ({ animationClass }) => {
   return (
-    <div className={cx('docs__wrapper')}>
+    <div className={cx('docs__wrapper', animationClass)}>
       <GraphDoc />
     </div>
   );

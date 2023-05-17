@@ -10,4 +10,39 @@
     font-size: 18px;
     letter-spacing: 0.1em;
   }
+
+  &-entered {
+    animation: showDocs 1s forwards;
+  }
+
+  &-exited {
+    animation: hideDocs 1s forwards;
+  }
+}
+
+
+@keyframes showDocs {
+  0% {
+    transform: translateX(-120%);
+  }
+  50% {
+    transform: translateX(0);
+    transition: transform 350ms;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes hideDocs{
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(0);
+    transition: transform 350ms;
+  }
+  100% {
+    transform: translateX(-120%);
+  }
 }

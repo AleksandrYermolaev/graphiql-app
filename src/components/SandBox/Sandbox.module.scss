@@ -9,6 +9,7 @@
     flex-grow: 1;
     border-radius: variables.$border-radius-main;
     padding: 10px;
+    transition: variables.$transition-big-block;
   }
 
   &__client {
