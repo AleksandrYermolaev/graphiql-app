@@ -8,7 +8,7 @@ import 'ace-builds/src-noconflict/ext-language_tools';
 import { getRequest } from 'services/thunkResponse';
 import { useAppDispatch } from 'hooks/useAppDispatch';
 import { PlayCircle } from 'react-feather';
-import styles from './TextEditor.module.scss';
+import './TextEditor.scss';
 
 export const TextEditor = () => {
   const [request, setRequest] = useState('');
@@ -21,7 +21,7 @@ export const TextEditor = () => {
   return (
     <>
       <AceEditor
-        className={styles.editor}
+        className="editor"
         mode="javascript"
         theme="monokai"
         name="editor_js"
@@ -30,7 +30,7 @@ export const TextEditor = () => {
         border-radius="24px"
         showPrintMargin={false}
         showGutter={true}
-        highlightActiveLine={true}
+        highlightActiveLine={false}
         setOptions={{
           enableBasicAutocompletion: true,
           enableLiveAutocompletion: true,
@@ -40,12 +40,7 @@ export const TextEditor = () => {
         }}
         onChange={(value: string) => setRequest(value)}
       />
-      <PlayCircle
-        color={'#e75b26'}
-        size={'2em'}
-        onClick={onClickRequest}
-        className={styles.button}
-      />
+      <PlayCircle color={'#e75b26'} size={'2em'} onClick={onClickRequest} className="btn_editor" />
     </>
   );
 };
