@@ -1,0 +1,43 @@
+@use '../../styles/variables';
+@use '../../styles/fonts';
+
+.sandbox {
+  &__wrapper {
+    background-color: variables.$color-main-beige;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex-grow: 1;
+    border-radius: variables.$border-radius-main;
+    padding: 10px;
+  }
+
+  &__client {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid variables.$color-bright-orange;
+    background-color: variables.$color-main-brown;
+    color: variables.$color-primary-beige;
+    border-radius: variables.$border-radius-main;
+    font-family: fonts.$font-bold;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+  }
+
+  &__section-common {
+    padding: 15px;
+  }
+
+  &__request {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+  }
+
+  &__server {
+    color: variables.$color-primary-brown;
+    flex-grow: 1;
+    font-family: fonts.$font-bold;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+  }
+}
