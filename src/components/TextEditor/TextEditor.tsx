@@ -1,44 +1,42 @@
 import { useState } from 'react';
 import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/ace';
-import 'ace-builds/src-noconflict/mode-javascript';
+import 'ace-builds/src-noconflict/mode-less';
 import 'ace-builds/src-noconflict/theme-monokai';
-import 'ace-builds/src-noconflict/snippets/javascript';
-import 'ace-builds/src-noconflict/ext-language_tools';
 import { getRequest } from 'services/thunkResponse';
-import { useAppDispatch } from 'hooks/useAppDispatch';
+import { useAppDispatch, useAppSelector } from 'hooks/useAppDispatch';
 import { PlayCircle } from 'react-feather';
 import './TextEditor.scss';
+import { selectHeaders, selectVariables } from 'store/requestParamsSlice';
 
 export const TextEditor = () => {
-  const [request, setRequest] = useState('');
+  const [payload, setPayload] = useState('');
   const dispatch = useAppDispatch();
+  const variables = useAppSelector(selectVariables);
+  const headers = useAppSelector(selectHeaders);
 
   const onClickRequest = () => {
-    dispatch(getRequest(request));
+    dispatch(getRequest({ payload, variables, headers }));
   };
 
   return (
     <>
       <AceEditor
         className="editor"
-        mode="javascript"
+        mode="less"
         theme="monokai"
         name="editor_js"
-        fontSize="16"
-        width="100%"
-        border-radius="24px"
+        fontSize={16}
+        width={'calc(100% - 50px)'}
+        height="100%"
         showPrintMargin={false}
         showGutter={true}
         highlightActiveLine={false}
         setOptions={{
-          enableBasicAutocompletion: true,
-          enableLiveAutocompletion: true,
-          enableSnippets: true,
           tabSize: 2,
           useWorker: false,
         }}
-        onChange={(value: string) => setRequest(value)}
+        onChange={(value: string) => setPayload(value)}
       />
       <PlayCircle color={'#e75b26'} size={'2em'} onClick={onClickRequest} className="btn_editor" />
     </>
