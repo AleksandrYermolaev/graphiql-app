@@ -1,5 +1,6 @@
 @use '../../styles/variables';
 @use '../../styles/fonts';
+@use '../../styles/mixins' as mixin;
 
 .g {
   &__wrapper {
@@ -7,32 +8,16 @@
     background-color: variables.$color-main-brown;
     padding: 20px;
     display: flex;
+    @include mixin.media-mobile {
+      flex-direction: column;
+    }
   }
 
   &__icons {
     padding: 10px;
     z-index: variables.$z-index-header;
+    @include mixin.media-big-mobile {
+      padding: 5px;
+    }
   }
-}
-
-//TODO delete classes
-.doc {
-  max-width: 400px;
-  height: calc(100vh - 100px);
-  margin: 0 auto;
-  padding: 0.5rem 1rem;
-  background-color: variables.$color-primary-brown;
-  overflow: auto;
-}
-.heading {
-  font-family: fonts.$font-bold;
-  font-size: 1.5rem;
-  color: variables.$color-primary-beige;
-  margin-bottom: 1rem;
-}
-.desc {
-  font-family: fonts.$font-medium;
-  font-size: 1rem;
-  color: variables.$color-primary-beige;
-  margin-bottom: 0.3rem;
 }

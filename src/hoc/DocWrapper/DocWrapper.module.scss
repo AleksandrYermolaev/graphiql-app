@@ -1,5 +1,6 @@
 @use '../../styles/variables' as var;
 @use '../../styles/fonts' as font;
+@use '../../styles/mixins' as mixin;
 
 .wrapper {
   max-width: 400px;
@@ -8,6 +9,10 @@
   padding: 0.5rem 1rem;
   background-color: transparent;
   overflow: auto;
+  @include mixin.media-mobile {
+    height: auto;
+    max-width: 500px;
+  }
 
   &::-webkit-scrollbar {
     width: 10px;

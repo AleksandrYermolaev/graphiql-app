@@ -1,5 +1,6 @@
 @use '../../styles/variables';
 @use '../../styles/fonts';
+@use '../../styles/mixins' as mixin;
 
 .sandbox {
   &__wrapper {
@@ -10,6 +11,10 @@
     border-radius: variables.$border-radius-main;
     padding: 10px;
     transition: variables.$transition-big-block;
+    @include mixin.media-big-mobile {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
   }
 
   &__client {

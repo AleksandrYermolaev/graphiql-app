@@ -9,7 +9,11 @@
     flex-grow: 1;
     font-family: fonts.$font-bold;
     letter-spacing: 0.1em;
+    margin-right: 20px;
     @include mixin.responsive('font-size', 18, 14);
+    @include mixin.media-mobile {
+      margin-right: 0px;
+    }
   }
 
   &-entered {
