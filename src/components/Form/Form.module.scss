@@ -1,18 +1,22 @@
-@use '../../styles/variables' as variables;
+@use 'src/styles/variables' as variables;
+@use 'src/styles/mixins' as mixin;
 
 .wrapper {
+  background-color: variables.$color-main-beige;
   background-image: url('src/assets/images/background.jpg');
   background-size: cover;
   width: 100%;
   height: calc(100vh - 100px);
-  padding-top: 6rem;
+  padding-left: 10px;
+  padding-right: 10px;
+  @include mixin.responsive('padding-top', 100, 15);
 }
 
 .form {
   max-width: 600px;
   row-gap: 20px;
   border-radius: 24px;
-  font-size: 1.4rem;
+  @include mixin.responsive('font-size', 24, 20);
   color: variables.$color-primary-beige;
   border: 2px solid variables.$color-bright-orange;
   background-color: variables.$color-primary-brown;
@@ -21,8 +25,8 @@
   margin: 0px auto;
   padding: 3rem 0.5rem;
   .title {
-    font-size: 3rem;
     text-align: center;
+    @include mixin.responsive('font-size', 48, 28);
   }
 
   .fieldset {
