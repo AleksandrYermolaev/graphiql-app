@@ -1,0 +1,35 @@
+@use '../../styles/variables';
+
+.ace_editor.ace-monokai.ace_dark {
+  border-radius: 0 0 variables.$border-radius-main variables.$border-radius-main;
+  background-color: transparent;
+
+  div.ace_gutter {
+    background-color: transparent;
+    color: variables.$color-primary-beige;
+  }
+
+  .ace_gutter-active-line.ace_gutter-cell {
+    background-color: variables.$color-primary-brown;
+  }
+
+  .ace_comment.ace_placeholder {
+    color: variables.$color-primary-beige;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-button {
+  display: none;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: variables.$color-primary-beige;
+  border: 2px solid variables.$color-main-brown;
+  border-radius: 10px;
+}

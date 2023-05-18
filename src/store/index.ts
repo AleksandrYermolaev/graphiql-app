@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userSlice from './userSlice.ts';
 import localeSlice from './localeSlice.ts';
+import requestParamsSlice from './requestParamsSlice.ts';
 import responceSlice from './responceSlice.ts';
 
 export const store = configureStore({
@@ -8,6 +9,7 @@ export const store = configureStore({
     userInfo: userSlice,
     response: responceSlice,
     localeInfo: localeSlice,
+    requestParams: requestParamsSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
