@@ -7,6 +7,8 @@ export interface RequestHeaders {
   [key: string]: string | number;
 }
 
-export interface RequestVariables {
-  [key: string]: string | number | RequestVariables;
+export interface ApiPayloadType {
+  payload: string;
+  variables?: string;
+  headers?: string;
 }
