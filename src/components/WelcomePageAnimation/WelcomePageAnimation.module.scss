@@ -1,5 +1,6 @@
 @use '../../styles/variables';
 @use '../../styles/fonts';
+@use 'src/styles/mixins' as mixin;
 
 .animation {
   &__inside {
@@ -25,6 +26,9 @@
     height: fit-content;
     width: 370px;
     padding-bottom: 10px;
+    @include mixin.media-mobile {
+      width: 300px;
+    }
   }
 
   &__outside {
@@ -64,6 +68,9 @@
     color: variables.$color-primary-brown;
     font-size: 16px;
     font-weight: 600;
+    @include mixin.media-mobile {
+      font-size: 14px;
+    }
   }
 
   &__text-inside {
@@ -80,6 +87,9 @@
     font-size: 18px;
     color: variables.$color-animation-message;
     margin-left: 15px;
+    @include mixin.media-mobile {
+      font-size: 16px;
+    }
   }
 }
 

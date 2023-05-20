@@ -13,31 +13,37 @@
 }
 
 @mixin media-mini-mobile {
-  @media (max-width: 320px) {
+  @media (min-width: 320px) {
     @content;
   }
 }
 
 @mixin media-mobile {
-  @media (min-width: 640px) {
+  @media (max-width: 639.9px) {
+    @content;
+  }
+}
+
+@mixin media-big-mobile {
+  @media (max-width: 959.9px) {
     @content;
   }
 }
 
 @mixin media-tablet {
-  @media (min-width: 960px) {
+  @media (max-width: 1279.9px) {
     @content;
   }
 }
 
 @mixin media-mini-dekstop {
-  @media (min-width: 1280px) {
+  @media (max-width: 1919.9px) {
     @content;
   }
 }
 
 @mixin media-desktop {
-  @media (max-width: 1920px) {
+  @media (min-width: 1920px) {
     @content;
   }
 }

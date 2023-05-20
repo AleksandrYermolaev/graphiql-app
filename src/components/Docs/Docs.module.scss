@@ -1,5 +1,6 @@
 @use '../../styles/variables';
 @use '../../styles/fonts';
+@use '../../styles/mixins' as mixin;
 
 .docs {
   &__wrapper {
@@ -7,7 +8,46 @@
     color: variables.$color-primary-beige;
     flex-grow: 1;
     font-family: fonts.$font-bold;
-    font-size: 18px;
     letter-spacing: 0.1em;
+    margin-right: 20px;
+    @include mixin.responsive('font-size', 18, 14);
+    @include mixin.media-mobile {
+      margin-right: 0px;
+    }
+  }
+
+  &-entered {
+    animation: showDocs 1s forwards;
+  }
+
+  &-exited {
+    animation: hideDocs 1s forwards;
+  }
+}
+
+
+@keyframes showDocs {
+  0% {
+    transform: translateX(-120%);
+  }
+  50% {
+    transform: translateX(0);
+    transition: transform 350ms;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes hideDocs{
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(0);
+    transition: transform 350ms;
+  }
+  100% {
+    transform: translateX(-120%);
   }
 }

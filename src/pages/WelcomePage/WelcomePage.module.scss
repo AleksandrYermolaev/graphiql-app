@@ -1,5 +1,6 @@
 @use 'src/styles/variables';
 @use 'src/styles/fonts';
+@use 'src/styles/mixins' as mixin;
 
 .welcome {
   &__wrapper {
@@ -20,6 +21,7 @@
     flex-direction: column;
     align-items: flex-start;
     font-family: fonts.$font-bold;
+    overflow: auto;
     padding-top: 50px;
   }
 
@@ -29,17 +31,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    @include mixin.media-mobile {
+      margin: 0px auto;
+    }
   }
 
   &__heading_text {
-    font-size: 24px;
+    @include mixin.responsive('font-size', 24, 16);
     font-weight: 600;
     color: variables.$color-primary-blue;
     margin: 0;
   }
 
   &__heading_main {
-    font-size: 48px;
+    @include mixin.responsive('font-size', 48, 30);
     font-weight: 600;
     text-shadow: 0.75px 0.5px 0.75px variables.$color-primary-beige,
       0 0.75px 0.75px variables.$color-primary-beige,
@@ -52,10 +57,17 @@
     display: grid;
     grid-template-columns: 0.5fr 1fr;
     grid-gap: 30px;
-    width: 75%;
     margin-left: 20px;
-    font-size: 20px;
     color: variables.$color-primary-brown;
+    @include mixin.responsive('font-size', 20, 14);
+    @include mixin.responsive('width', 75%, 85%);
+    @include mixin.media-mobile {
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.4fr 1fr;
+      grid-gap: 0px;
+      margin: auto;
+      padding: 10px;
+    }
   }
 
   &__info {
@@ -64,5 +76,12 @@
     justify-content: space-between;
     color: variables.$color-primary-brown;
     padding: 20px;
+    @include mixin.responsive('padding', 20, 5);
+  }
+}
+
+.welcome__content-part {
+  @include mixin.media-big-mobile {
+    padding-bottom: 10px;
   }
 }

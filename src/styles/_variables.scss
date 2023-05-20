@@ -2,6 +2,7 @@
 $border-radius-buttons: 25px;
 $border-radius-main: 24px;
 $transition: all 0.3s ease;
+$transition-big-block: all 0.5s ease;
 $z-index-header: 1;
 
 //COLORS
@@ -12,7 +13,7 @@ $color-primary-beige: #eee6cc;
 $color-primary-orange: #ff9167;
 $color-primary-red: rgb(255, 87, 87);
 $color-primary-blue: #123661;
-$color-primary-brown-shadow: rgba(59, 38, 18, 0.5);
+$color-primary-brown-shadow: rgba(59, 38, 18, 0.7);
 $color-primary-white: #ffffff;
 $color-sticky-header: #969487;
 
@@ -37,6 +38,6 @@ $color-main-brown: rgba(108, 92, 77);
 $color-main-beige: rgba(157, 146, 136);
 
 //docs
-$color-doc-blue: #3276ca;
-$color-doc-red: #f34141;
+$color-doc-blue: #58a3ff;
+$color-doc-red: #f3638f;
 $color-doc-orange: #f7a951;

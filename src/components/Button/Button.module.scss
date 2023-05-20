@@ -1,20 +1,20 @@
-@use '../../styles/variables';
+@use 'src/styles/variables';
+@use 'src/styles/mixins' as mixin;
 
 .button {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 50px;
   border-radius: variables.$border-radius-buttons;
   padding: 10px;
   border: none;
   outline: none;
   cursor: pointer;
-  font-size: 16px;
   line-height: 150%;
   height: 30px;
   margin-left: 20px;
+  @include mixin.responsive('font-size', 18, 16);
 
   &__accordion-inactive {
     background-color: transparent;
@@ -26,7 +26,6 @@
   &__accordion-active {
     background: variables.$color-bright-orange;
     color: variables.$color-primary-brown;
-    font-size: 18px;
     letter-spacing: 0.05em;
   }
 
@@ -34,6 +33,7 @@
     width: 17rem;
     margin: auto;
     background-color: variables.$color-primary-orange;
+    @include mixin.responsive('font-size', 24, 20);
     &:hover {
       background-color: variables.$color-bright-orange;
     }
