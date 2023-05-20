@@ -25,7 +25,6 @@
   }
 }
 
-
 @keyframes showDocs {
   0% {
     transform: translateX(-120%);
@@ -39,7 +38,7 @@
   }
 }
 
-@keyframes hideDocs{
+@keyframes hideDocs {
   0% {
     transform: translateX(0);
   }

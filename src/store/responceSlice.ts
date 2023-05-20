@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getRequest } from 'services/thunkResponse';
+import { RootState } from 'store';
+import { GraphQLResponse } from 'types';
 
 export interface Responce {
-  data: string | null;
+  data: GraphQLResponse | null;
   error: boolean;
   isLoading: boolean;
 }
@@ -34,4 +36,5 @@ const responceSlice = createSlice({
   },
 });
 
+export const selectResponce = (state: RootState) => state.response;
 export default responceSlice.reducer;

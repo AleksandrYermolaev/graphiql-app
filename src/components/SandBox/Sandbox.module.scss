@@ -35,6 +35,7 @@
   }
 
   &__server {
+    padding: 0 10px;
     color: variables.$color-primary-brown;
     flex-grow: 1;
     font-family: fonts.$font-bold;
