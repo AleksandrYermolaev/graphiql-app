@@ -12,3 +12,7 @@ export interface ApiPayloadType {
   variables?: string;
   headers?: string;
 }
+
+export interface GraphQLResponse {
+  [key: string]: string | GraphQLResponse;
+}

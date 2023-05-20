@@ -9,10 +9,5 @@ interface ServerSandboxProps {
 }
 
 export const ServerSandbox: React.FC<ServerSandboxProps> = ({ children }) => {
-  return (
-    <div className={cx('sandbox__section-common', 'sandbox__server')}>
-      <p>response</p>
-      {children}
-    </div>
-  );
+  return <div className={cx('sandbox__section-common', 'sandbox__server')}>{children}</div>;
 };
