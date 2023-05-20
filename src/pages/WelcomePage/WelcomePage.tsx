@@ -19,20 +19,22 @@ export const WelcomePage = () => {
       </div>
       <div className={cx('welcome__content')}>
         <div className={cx('welcome__info')}>
-          <p>
+          <p className={cx('welcome__content-part')}>
             <FormattedMessage id={'wp1'} />
           </p>
-          <p>
+          <p className={cx('welcome__content-part')}>
             <FormattedMessage id={'wp2'} />
           </p>
-          <p>
+          <p className={cx('welcome__content-part')}>
             <FormattedMessage id={'wp3'} />
           </p>
-          <p>
+          <p className={cx('welcome__content-part')}>
             <FormattedMessage id={'wp4'} />
           </p>
         </div>
-        <WelcomePageAnimation />
+        <div className={cx('welcome__content-animation')}>
+          <WelcomePageAnimation />
+        </div>
       </div>
     </div>
   );
