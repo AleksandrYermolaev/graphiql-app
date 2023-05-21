@@ -7,8 +7,9 @@ import { InputObjectDoc } from './InputObjectDoc';
 import { ScalarDoc } from './ScalarDoc';
 import { Fallback } from './Fallback';
 import { getInititalSchema } from 'helpers/parseSchema';
+import { Loader } from 'components/Loader';
 
-export const GraphDoc: React.FC = () => {
+const GraphDoc: React.FC = () => {
   const [apiSchema, setApiSchema] = useState<ReadonlyArray<IntrospectionType>>([]);
   const [viewSchemaNum, setViewSchemaNum] = useState<number>(0);
   const [navigationHistory, setNavigationHistory] = useState<Array<number>>([]);
@@ -61,7 +62,11 @@ export const GraphDoc: React.FC = () => {
       return (
         <DocWrapper doc={<ScalarDoc viewSchema={viewSchema} />} setInitial={handleBackInHistory} />
       );
+    case undefined:
+      return <Loader />;
     default:
       return <DocWrapper doc={<Fallback />} setInitial={handleBackInHistory} />;
   }
 };
+
+export default GraphDoc;
