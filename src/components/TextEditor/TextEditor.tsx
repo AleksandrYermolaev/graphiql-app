@@ -28,7 +28,7 @@ export const TextEditor = () => {
         theme="monokai"
         name="editor_js"
         fontSize={16}
-        width={'calc(100% - 50px)'}
+        width={'calc(100% - 30px)'}
         height="100%"
         showPrintMargin={false}
         showGutter={true}

@@ -32,6 +32,8 @@ export const messages = {
     hover_for_response: `Hover me to see API's response...`,
     variables: 'Variables',
     headers: 'Headers',
+    variablesPlaceholder: 'write variables here...',
+    headersPlaceholder: 'write headers here...',
   },
 
   [LOCALES.RUSSIAN]: {
@@ -64,5 +66,7 @@ export const messages = {
     hover_for_response: `Наведи курсор чтобы увидеть ответ API...`,
     variables: 'Переменные',
     headers: 'Заголовки',
+    variablesPlaceholder: 'напишите здесь переменные...',
+    headersPlaceholder: 'напишите здесь заголовки...',
   },
 };

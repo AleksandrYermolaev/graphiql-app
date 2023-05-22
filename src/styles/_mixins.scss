@@ -18,6 +18,18 @@
   }
 }
 
+@mixin media-mini-mobile-request-max {
+  @media (max-width: 330px) {
+    @content;
+  }
+}
+
+@mixin media-mini-mobile-request-middle {
+  @media (max-width: 325px) {
+    @content;
+  }
+}
+
 @mixin media-mobile {
   @media (max-width: 639.9px) {
     @content;
@@ -30,6 +42,11 @@
   }
 }
 
+@mixin media-column {
+  @media (max-width: 800px) {
+    @content;
+  }
+}
 @mixin media-tablet {
   @media (max-width: 1279.9px) {
     @content;
