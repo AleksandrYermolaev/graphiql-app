@@ -12,7 +12,7 @@ export interface Responce {
 const initialState: Responce = {
   data: null,
   error: false,
-  isLoading: true,
+  isLoading: false,
 };
 
 const responceSlice = createSlice({
