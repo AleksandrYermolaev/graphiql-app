@@ -23,8 +23,9 @@
     padding: 20px 0 0;
     margin: 0 auto;
     width: 100%;
-    @include mixin.responsive('font-size', 24, 16);
-    @include mixin.responsive('padding-top', 20, 0);
+    border: none;
+    @include mixin.responsive('font-size', 24, 20);
+    @include mixin.responsive('padding-top', 20, 10);
   }
 
   &__link-wrapper:hover {
