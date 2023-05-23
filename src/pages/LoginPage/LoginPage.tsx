@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Input } from 'components/Input';
 import { Link } from 'react-router-dom';
 import { Form } from 'components/Form/Form';
+import { GoToWelcomeLink } from '../../components/GoToWelcomeLink/GoToWelcomeLink.tsx';
 
 export type IUser = {
   email: string;
@@ -59,6 +60,7 @@ export const LoginPage = () => {
 
   return (
     <>
+      <GoToWelcomeLink />
       <Form title={'logIn'} onSubmit={handleSubmit(onSubmit)}>
         <>
           <Input

@@ -34,6 +34,7 @@ export const messages = {
     headers: 'Headers',
     goToWelcome: 'About',
     goToMain: 'Sandbox',
+    goToWelcomeInRegister: 'Go to welcome page',
   },
 
   [LOCALES.RUSSIAN]: {
@@ -68,5 +69,6 @@ export const messages = {
     headers: 'Заголовки',
     goToWelcome: 'О нас',
     goToMain: 'Песочница',
+    goToWelcomeInRegister: 'Вернуться на страницу приветствия',
   },
 };
