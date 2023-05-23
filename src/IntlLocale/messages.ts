@@ -22,16 +22,18 @@ export const messages = {
     notFoundMsg: `Oh no, looks like you've wandered in the wrong place!`,
     backToHome: 'Back to home',
     wp1: `Send a GraphQL query to your API and get exactly what you need, nothing more and nothing
-            less.`,
+           less.`,
     wp2: `GraphQL is designed to make APIs fast, flexible, and developer-friendly.`,
     wp3: `GraphQL isn't tied to any specific database or storage engine and is instead backed by
-            your existing code and data.`,
+           your existing code and data.`,
     wp4: `This application was created by students of the RSSchool, using GraphQl and for learning GraphQL..`,
     wp_heading1: `query language`,
     wp_heading2: `for APIs`,
     hover_for_response: `Hover me to see API's response...`,
     variables: 'Variables',
     headers: 'Headers',
+    goToWelcome: 'About',
+    goToMain: 'Sandbox',
   },
 
   [LOCALES.RUSSIAN]: {
@@ -64,5 +66,7 @@ export const messages = {
     hover_for_response: `Наведи курсор чтобы увидеть ответ API...`,
     variables: 'Переменные',
     headers: 'Заголовки',
+    goToWelcome: 'О нас',
+    goToMain: 'Песочница',
   },
 };
