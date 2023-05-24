@@ -30,6 +30,30 @@
   }
 }
 
+@mixin media-response-min-content {
+  @media (max-width: 370px) {
+    @content;
+  }
+}
+
+@mixin media-response-little-content {
+  @media (max-width: 400px) {
+    @content;
+  }
+}
+
+@mixin media-response-middle-content {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin media-response-big-content {
+  @media (max-width: 530px) {
+    @content;
+  }
+}
+
 @mixin media-mobile {
   @media (max-width: 639.9px) {
     @content;
