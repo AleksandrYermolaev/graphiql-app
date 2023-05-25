@@ -7,14 +7,14 @@
   justify-content: center;
   align-items: center;
   border-radius: variables.$border-radius-buttons;
-  padding: 10px;
   border: none;
   outline: none;
   cursor: pointer;
   line-height: 150%;
   height: 30px;
   margin-left: 20px;
-  @include mixin.responsive('font-size', 18, 16);
+  @include mixin.responsive('font-size', 18, 14);
+  @include mixin.responsive('padding', 10, 9);
 
   &__accordion-inactive {
     background-color: transparent;

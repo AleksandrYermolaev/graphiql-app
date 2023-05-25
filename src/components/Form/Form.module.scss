@@ -4,9 +4,10 @@
 .wrapper {
   background-color: variables.$color-main-beige;
   width: 100%;
-  height: calc(100vh - 100px);
   padding-left: 10px;
   padding-right: 10px;
+  flex-grow: 1;
+  margin-top: 0;
   @include mixin.responsive('padding-top', 100, 15);
 }
 

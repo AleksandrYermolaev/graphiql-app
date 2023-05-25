@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Button } from 'components/Button';
 import { Form } from 'components/Form/Form';
+import { GoToWelcomeLink } from '../../components/GoToWelcomeLink/GoToWelcomeLink.tsx';
 
 export type IForm = {
   email: string;
@@ -55,6 +56,7 @@ export const SignUpPage = () => {
 
   return (
     <>
+      <GoToWelcomeLink />
       <Form title={'signUp'} onSubmit={handleSubmit(onSubmit)}>
         <>
           <Input
