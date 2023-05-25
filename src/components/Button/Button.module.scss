@@ -19,13 +19,18 @@
   &__accordion-inactive {
     background-color: transparent;
     color: variables.$color-primary-beige;
-    font-size: 18px;
+    @include mixin.responsive('font-size', 18, 14);
+    @include mixin.responsive('padding', 10, 8);
+    @include mixin.responsive('margin-left', 20, 8);
     letter-spacing: 0.05em;
   }
 
   &__accordion-active {
     background: variables.$color-bright-orange;
     color: variables.$color-primary-brown;
+    @include mixin.responsive('padding', 10, 8);
+    @include mixin.responsive('font-size', 18, 14);
+    @include mixin.responsive('margin-left', 20, 8);
     letter-spacing: 0.05em;
   }
 
