@@ -5,7 +5,7 @@ export interface UserInfo {
 }
 
 const initialState: UserInfo = {
-  token: null,
+  token: localStorage.getItem('token-ff'),
 };
 
 const userSlice = createSlice({

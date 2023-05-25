@@ -8,14 +8,15 @@
     background-color: variables.$color-main-brown;
     padding: 20px;
     display: flex;
-    @include mixin.media-mobile {
+    @include mixin.media-column {
       flex-direction: column;
     }
   }
 
   &__icons {
     padding: 10px;
-    z-index: variables.$z-index-header;
+    z-index: variables.$z-index-docs-icon;
+    cursor: pointer;
     @include mixin.media-big-mobile {
       padding: 5px;
     }

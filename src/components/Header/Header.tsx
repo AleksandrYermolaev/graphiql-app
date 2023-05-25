@@ -12,6 +12,7 @@ import { useAppSelector } from 'hooks/useAppDispatch.ts';
 import { Link } from 'react-router-dom';
 import { setToken } from '../../store/userSlice.ts';
 import { useLocation } from 'react-router-dom';
+import { getAuth, signOut } from 'firebase/auth';
 
 const cx = classNames.bind(styles);
 
@@ -45,8 +46,11 @@ export const Header = () => {
   }
 
   const deleteToken = () => {
-    dispatch(setToken(null));
-    localStorage.removeItem('token-ff');
+    const auth = getAuth();
+    signOut(auth).then(() => {
+      dispatch(setToken(null));
+      localStorage.removeItem('token-ff');
+    });
   };
 
   const buttonStyle = scroll ? 'header__button-noscroll' : 'header__button-scroll';

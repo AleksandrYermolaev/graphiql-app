@@ -36,7 +36,7 @@ export const Accordion: React.FC = () => {
 
   return (
     <div className={cx('accordion__wrapper')}>
-      <div className={cx('accordion__title', { 'border-bottom': !showContent })}>
+      <div className={cx('accordion__title', { 'border-bottom': showContent })}>
         <div className={cx('accordion__buttons')}>
           <Button
             type="button"

@@ -1,4 +1,5 @@
 @use '../../../styles/variables' as var;
+@use 'src/styles/mixins' as mixin;
 
 ._GzYRV {
   line-height: 1.2;
@@ -14,11 +15,31 @@
 
 ._11RoI {
   background: transparent;
+  @include mixin.media-response-big-content {
+    width: 400px;
+  }
+
+  @include mixin.media-response-middle-content {
+    width: 320px;
+  }
+
+  @include mixin.media-response-little-content {
+    width: 280px;
+  }
+  @include mixin.media-response-min-content {
+    width: 250px;
+  }
 }
 
 ._2bkNM {
   margin: 0 20px;
   padding: 0;
+  @include mixin.media-response-big-content {
+    margin: 0 10px;
+  }
+  @include mixin.media-response-little-content {
+    margin: 0 5px;
+  }
 }
 
 ._2bSDX {

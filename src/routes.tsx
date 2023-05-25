@@ -1,5 +1,5 @@
 import { Layout } from 'components/Layout';
-import { RequireAuth } from 'hoc/RequireAuth';
+import { RequireToken } from 'hoc/RequireToken';
 import { GraphiqlPage } from 'pages/GraphiqlPage';
 import { LoginPage } from 'pages/LoginPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
@@ -21,19 +21,23 @@ export default [
           },
           {
             path: 'app',
-            element: (
-              <RequireAuth>
-                <GraphiqlPage />
-              </RequireAuth>
-            ),
+            element: <GraphiqlPage />,
           },
           {
             path: 'login',
-            element: <LoginPage />,
+            element: (
+              <RequireToken>
+                <LoginPage />
+              </RequireToken>
+            ),
           },
           {
             path: 'register',
-            element: <SignUpPage />,
+            element: (
+              <RequireToken>
+                <SignUpPage />
+              </RequireToken>
+            ),
           },
         ],
       },

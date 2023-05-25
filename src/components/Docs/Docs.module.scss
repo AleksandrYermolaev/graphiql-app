@@ -10,9 +10,13 @@
     font-family: fonts.$font-bold;
     letter-spacing: 0.1em;
     margin-right: 20px;
+    max-width: 400px;
     @include mixin.responsive('font-size', 18, 14);
     @include mixin.media-mobile {
       margin-right: 0px;
+    }
+    @include mixin.media-column {
+      max-width: 800px;
     }
   }
 
