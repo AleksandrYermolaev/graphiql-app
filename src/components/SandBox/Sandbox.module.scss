@@ -27,11 +27,20 @@
     font-family: fonts.$font-bold;
     font-size: 18px;
     letter-spacing: 0.1em;
+    @include mixin.media-mini-mobile-request-max {
+      max-width: 98%;
+    }
+    @include mixin.media-mini-mobile-request-middle {
+      max-width: 95%;
+    }
   }
 
   &__request {
     position: relative;
     flex-grow: 1;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: row;
   }
 
   &__server {

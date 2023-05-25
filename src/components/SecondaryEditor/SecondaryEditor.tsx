@@ -1,4 +1,5 @@
 import AceEditor from 'react-ace';
+import { useIntl } from 'react-intl';
 import ace from 'ace-builds/src-noconflict/ace';
 ace.config.set('basePath', 'https://cdn.jsdelivr.net/npm/ace-builds@1.4.3/src-noconflict/');
 ace.config.setModuleUrl(
@@ -18,6 +19,7 @@ interface SecondaryEditorProps {
 }
 
 export const SecondaryEditor: React.FC<SecondaryEditorProps> = ({ type }) => {
+  const intl = useIntl();
   const dispatch = useAppDispatch();
   const debouncedVariablesDispatch = useDebouncedCallback((value: string) => {
     dispatch(setVariables(value));
@@ -40,7 +42,11 @@ export const SecondaryEditor: React.FC<SecondaryEditorProps> = ({ type }) => {
 
   return (
     <AceEditor
-      placeholder={`write ${type} here...`}
+      placeholder={
+        type === 'headers'
+          ? intl.formatMessage({ id: 'headersPlaceholder' })
+          : intl.formatMessage({ id: 'variablesPlaceholder' })
+      }
       mode={'json'}
       value={type === 'headers' ? headersValue : variablesValue}
       theme="monokai"
