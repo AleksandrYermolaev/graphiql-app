@@ -72,7 +72,7 @@ export const messages = {
     goToWelcome: 'О нас',
     goToMain: 'Песочница',
     goToWelcomeInRegister: 'Вернуться на страницу приветствия',
-    variablesPlaceholder: 'напишите здесь переменные...',
-    headersPlaceholder: 'напишите здесь заголовки...',
+    variablesPlaceholder: 'ваши переменные...',
+    headersPlaceholder: 'ваши заголовки...',
   },
 };
