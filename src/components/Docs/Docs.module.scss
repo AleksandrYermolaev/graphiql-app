@@ -1,0 +1,56 @@
+@use '../../styles/variables';
+@use '../../styles/fonts';
+@use '../../styles/mixins' as mixin;
+
+.docs {
+  &__wrapper {
+    background-color: variables.$color-main-brown;
+    color: variables.$color-primary-beige;
+    flex-grow: 1;
+    font-family: fonts.$font-bold;
+    letter-spacing: 0.1em;
+    margin-right: 20px;
+    max-width: 400px;
+    @include mixin.responsive('font-size', 18, 14);
+    @include mixin.media-mobile {
+      margin-right: 0px;
+    }
+    @include mixin.media-column {
+      max-width: 800px;
+    }
+  }
+
+  &-entered {
+    animation: showDocs 1s forwards;
+  }
+
+  &-exited {
+    animation: hideDocs 1s forwards;
+  }
+}
+
+@keyframes showDocs {
+  0% {
+    transform: translateX(-120%);
+  }
+  50% {
+    transform: translateX(0);
+    transition: transform 350ms;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes hideDocs {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(0);
+    transition: transform 350ms;
+  }
+  100% {
+    transform: translateX(-120%);
+  }
+}

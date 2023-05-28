@@ -1,0 +1,79 @@
+@use 'src/styles/variables';
+@use 'src/styles/mixins' as mixin;
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: variables.$border-radius-buttons;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  line-height: 150%;
+  height: 30px;
+  margin-left: 20px;
+  @include mixin.responsive('font-size', 18, 14);
+  @include mixin.responsive('padding', 10, 9);
+
+  &__accordion-inactive {
+    background-color: transparent;
+    color: variables.$color-primary-beige;
+    @include mixin.responsive('font-size', 18, 14);
+    @include mixin.responsive('padding', 10, 8);
+    @include mixin.responsive('margin-left', 20, 8);
+    letter-spacing: 0.05em;
+  }
+
+  &__accordion-active {
+    background: variables.$color-bright-orange;
+    color: variables.$color-primary-brown;
+    @include mixin.responsive('padding', 10, 8);
+    @include mixin.responsive('font-size', 18, 14);
+    @include mixin.responsive('margin-left', 20, 8);
+    letter-spacing: 0.05em;
+  }
+
+  &__form {
+    width: 17rem;
+    margin: auto;
+    background-color: variables.$color-primary-orange;
+    @include mixin.responsive('font-size', 24, 20);
+    &:hover {
+      background-color: variables.$color-bright-orange;
+    }
+  }
+
+  &__primary {
+    padding: 0 10px;
+    height: 30px;
+    font-size: 16px;
+    line-height: 150%;
+    color: variables.$color-primary-beige;
+    background: variables.$color-bright-orange;
+    border: none;
+    cursor: pointer;
+    transition: variables.$transition;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.header__button {
+  &-scroll {
+    background: variables.$color-primary-beige;
+    color: variables.$color-primary-brown;
+  }
+
+  &-noscroll {
+    background: variables.$color-primary-brown;
+    color: variables.$color-primary-beige;
+  }
+}
+
+.button:hover {
+  background: variables.$color-bright-orange;
+  color: variables.$color-primary-brown;
+}

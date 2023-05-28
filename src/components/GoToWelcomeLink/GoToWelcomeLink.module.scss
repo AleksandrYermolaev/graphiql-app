@@ -1,0 +1,34 @@
+@use 'src/styles/variables' as var;
+@use 'src/styles/mixins' as mixin;
+@use 'src/styles/fonts';
+
+.go {
+  &__link {
+    text-decoration: none;
+    color: var.$color-primary-beige;
+  }
+
+  &__link-icon {
+    @include mixin.responsive('font-size', 24, 18);
+    @include mixin.responsive('margin-right', 15, 10);
+  }
+
+  &__link-wrapper {
+    color: var.$color-primary-beige;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    font-family: fonts.$font-medium;
+    background-color: var.$color-main-beige;
+    padding: 20px 0 0;
+    margin: 0 auto;
+    width: 100%;
+    border: none;
+    @include mixin.responsive('font-size', 24, 20);
+    @include mixin.responsive('padding-top', 20, 10);
+  }
+
+  &__link-wrapper:hover {
+    color: var.$color-primary-orange;
+  }
+}

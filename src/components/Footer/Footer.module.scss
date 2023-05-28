@@ -1,0 +1,64 @@
+@use '../../styles/variables' as var;
+@use '../../styles/mixins' as mixin;
+
+.footer {
+  width: 100%;
+  height: 50px;
+  flex-shrink: 0;
+  background-color: var.$color-primary-brown;
+  color: var.$color-primary-beige;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .list {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+
+    @include mixin.media-mobile {
+      gap: 5px;
+    }
+
+    &-item {
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var.$color-primary-beige;
+
+    .username {
+      @include mixin.media-mobile {
+        display: none;
+      }
+    }
+
+    img {
+      transition: var.$transition;
+    }
+
+    &:hover {
+      text-decoration: underline;
+
+      img {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .year {
+    margin: 0 2rem;
+
+    @include mixin.media-mobile {
+      margin: 0 1rem;
+    }
+  }
+}

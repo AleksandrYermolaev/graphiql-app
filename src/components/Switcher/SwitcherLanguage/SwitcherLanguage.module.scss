@@ -1,0 +1,46 @@
+@use '../../../styles/variables';
+
+.switcher-language {
+  &__label {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 23px;
+    margin: 0 6px;
+  }
+
+  &__input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  &__circle {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: variables.$color-bright-orange;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 17px;
+  }
+
+  &__circle:before {
+    position: absolute;
+    content: '';
+    height: 21px;
+    width: 21px;
+    left: 1px;
+    top: 1px;
+    background-color: variables.$color-primary-beige;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+
+  &__input:checked + &__circle:before {
+    transform: translateX(21px);
+  }
+}

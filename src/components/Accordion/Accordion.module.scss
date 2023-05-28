@@ -1,0 +1,28 @@
+@use '../../styles/variables';
+@use '../../styles/fonts';
+
+.accordion {
+  &__title {
+    border-top: 1px solid variables.$color-main-beige;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__content {
+    transition: variables.$transition;
+    height: 15vh;
+  }
+}
+
+.border-bottom {
+  border-bottom: 1px solid variables.$color-main-beige;
+  margin-bottom: 2px;
+}

@@ -1,0 +1,32 @@
+@use '../../styles/variables';
+
+.sandbox__section-common .ace_editor.ace-monokai {
+  border-radius: variables.$border-radius-main 0 0 0;
+}
+
+.ace_editor.ace_dark.ace-monokai {
+  background-color: transparent;
+  div.ace_gutter {
+    background-color: transparent;
+    color: variables.$color-primary-beige;
+  }
+
+  .ace_gutter-active-line.ace_gutter-cell {
+    background-color: variables.$color-primary-brown;
+  }
+}
+
+.ace-monokai .ace_gutter {
+  background-color: red;
+}
+
+.btn_editor {
+  position: absolute;
+  cursor: pointer;
+  top: 20px;
+  right: 5px;
+}
+
+.btn-pause {
+  cursor: initial;
+}

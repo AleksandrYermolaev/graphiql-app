@@ -1,0 +1,24 @@
+@use '../../styles/variables';
+@use '../../styles/fonts';
+@use '../../styles/mixins' as mixin;
+
+.g {
+  &__wrapper {
+    flex-grow: 1;
+    background-color: variables.$color-main-brown;
+    padding: 20px;
+    display: flex;
+    @include mixin.media-column {
+      flex-direction: column;
+    }
+  }
+
+  &__icons {
+    padding: 10px;
+    z-index: variables.$z-index-docs-icon;
+    cursor: pointer;
+    @include mixin.media-big-mobile {
+      padding: 5px;
+    }
+  }
+}

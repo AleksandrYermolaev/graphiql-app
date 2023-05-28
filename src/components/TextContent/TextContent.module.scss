@@ -1,0 +1,21 @@
+@use '../../styles/variables' as var;
+@use '../../styles/fonts' as font;
+@use '../../styles/mixins' as mixin;
+
+.text {
+  font-family: font.$font-bold;
+  color: var.$color-primary-brown;
+  @include mixin.responsive('font-size', 24, 14);
+}
+
+.small {
+  @include mixin.responsive('font-size', 16, 12);
+}
+
+.large {
+  @include mixin.responsive('font-size', 34, 18);
+}
+
+.light {
+  color: var.$color-primary-beige;
+}

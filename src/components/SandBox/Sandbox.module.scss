@@ -1,0 +1,54 @@
+@use '../../styles/variables';
+@use '../../styles/fonts';
+@use '../../styles/mixins' as mixin;
+
+.sandbox {
+  &__wrapper {
+    background-color: variables.$color-main-beige;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex-grow: 1;
+    border-radius: variables.$border-radius-main;
+    padding: 10px;
+    transition: variables.$transition-big-block;
+    @include mixin.media-big-mobile {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+  }
+
+  &__client {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid variables.$color-bright-orange;
+    background-color: variables.$color-main-brown;
+    color: variables.$color-primary-beige;
+    border-radius: variables.$border-radius-main;
+    font-family: fonts.$font-bold;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    @include mixin.media-mini-mobile-request-max {
+      max-width: 98%;
+    }
+    @include mixin.media-mini-mobile-request-middle {
+      max-width: 96%;
+    }
+  }
+
+  &__request {
+    position: relative;
+    flex-grow: 1;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__server {
+    padding: 0 10px;
+    color: variables.$color-primary-brown;
+    flex-grow: 1;
+    font-family: fonts.$font-bold;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+  }
+}
