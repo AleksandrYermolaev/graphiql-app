@@ -5,8 +5,10 @@ import { Transition } from 'react-transition-group';
 import { Sandbox } from '../../components/SandBox/Sandbox.tsx';
 import { Book, BookOpen } from 'react-feather';
 import { Docs } from '../../components/Docs/Docs.tsx';
-import { useAppSelector } from 'hooks/useAppDispatch.ts';
+import { useAppDispatch, useAppSelector } from 'hooks/useAppDispatch.ts';
 import { useNavigate } from 'react-router-dom';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { setToken } from 'store/userSlice.ts';
 
 const cx = classNames.bind(styles);
 
@@ -15,6 +17,8 @@ export const GraphiqlPage: React.FC = () => {
   const [showDocs, setShowDocs] = useState(false);
   const token = useAppSelector((state) => state.userInfo.token);
   const navigate = useNavigate();
+  const auth = getAuth();
+  const dispatch = useAppDispatch();
 
   function toggleDocsIcon() {
     setShowDocs(!showDocs);
@@ -25,6 +29,17 @@ export const GraphiqlPage: React.FC = () => {
       navigate('/', { replace: true });
     }
   }, [navigate, token]);
+
+  onAuthStateChanged(auth, async (user) => {
+    if (user) {
+      const token = await user.getIdToken();
+      dispatch(setToken(token));
+      localStorage.setItem('token-ff', token);
+    } else {
+      dispatch(setToken(null));
+      localStorage.removeItem('token-ff');
+    }
+  });
 
   return (
     <div className={cx('g__wrapper')}>
